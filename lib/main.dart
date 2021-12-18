@@ -6,18 +6,17 @@ import 'stateless_widgets/home.dart';
 import 'stateless_widgets/cards.dart';
 import 'screens/My_Products.dart';
 import 'screens/My_Item.dart';
+import 'screens/my_offer.dart';
+
 void main() {
   runApp(MaterialApp(
     initialRoute: '/mmm',
     routes: {
-      '/' : (context) => home(),
+      '/': (context) => home(),
       '/categories': (context) => categories(),
       '/items': (context) => Show_items(),
-       '/mmm': (context) => My_Products(),
-
+      '/mmm': (context) => My_Products(),
+      '/offers': (context) => my_offer(),
     },
-  )
-  );
+  ));
 }
-
-
