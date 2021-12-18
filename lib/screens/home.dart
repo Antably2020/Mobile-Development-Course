@@ -1,6 +1,6 @@
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
-import '../stateless_widgets/bar.dart';
+import '../stateless_widgets/bar_widget.dart';
 class home extends StatelessWidget {
 
   @override

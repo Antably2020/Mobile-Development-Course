@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
-import 'package:exchange_app/statefull_widgets/Product_Description.dart';
+import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class SoldItems extends StatefulWidget {
+  SoldItems({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SoldItemsState createState() => _SoldItemsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SoldItemsState extends State<SoldItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: ListView.builder(
             padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
-            itemCount: items[0].id,
+            itemCount: items.where((c) => c.sold == true).toList().length,
             itemBuilder: (BuildContext ctxt, int index) {
               return InkWell(
                   onTap: () {
@@ -36,10 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       subtitle: Text(
                         items[index].description,
                       ),
+                      leading: Image.asset(items[index].image),
                     ),
-                  )
-                  );
-            })
-            );
+                  ));
+            }));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bar.dart';
+import 'bar_widget.dart';
 class categories extends StatelessWidget {
 
   @override
