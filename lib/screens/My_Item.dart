@@ -18,7 +18,7 @@ class My_Products extends StatelessWidget {
         appBar: AppBar(),
 
       ),
-      body: MyHomePage(title: 'kkk',),
+      body: MyHomePage(title: 'My Items',),
     );
   }
 }
