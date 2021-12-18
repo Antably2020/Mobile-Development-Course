@@ -20,7 +20,7 @@ class _nav_bar_widget extends State<nav_bar_widget> {
         Navigator.pushNamed(context, '/mmm');
       }
       else{
-        
+        Navigator.pushNamed(context, '/categories');
       }
       
     });

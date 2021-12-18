@@ -8,6 +8,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   /// you can add more fields that meet your needs
 
+
   const BaseAppBar({Key?key, required this.backgroundColor,required this.title, required this.appBar})
       : super(key: key);
 

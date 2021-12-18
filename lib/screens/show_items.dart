@@ -1,4 +1,5 @@
 import 'package:exchange_app/models/item.dart';
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/stateless_widgets/bar.dart';
 import 'package:exchange_app/stateless_widgets/cards.dart';
@@ -16,7 +17,11 @@ class Show_items extends StatelessWidget {
         appBar: AppBar(),
 
       ),
-      body: CardSquare(),
+      body: CardSquare(
+        product: Item(0, Colors.blue, "description", "assets/car.jpg", 99, "title"),
+        
+      ),
+      bottomNavigationBar: nav_bar_widget(),
     );
   }
 }

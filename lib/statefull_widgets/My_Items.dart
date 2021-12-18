@@ -37,7 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         items[index].description,
                       ),
                     ),
-                  ));
-            }));
+                  )
+                  );
+            })
+            );
   }
 }
