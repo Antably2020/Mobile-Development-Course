@@ -5,11 +5,11 @@ class categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: startDrawer(),
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-          title: Text('title 2 kareem'),
+          title: Text('title 2 kareemm'),
           appBar: AppBar(),
-          widgets: <Widget>[Icon(Icons.arrow_back)],
           ),
       body: SafeArea(
         child: ElevatedButton(
