@@ -68,7 +68,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    widget.myData.price.toString() + ' \$',
+                                    widget.myData.title + ' \$',
                                     style: TextStyle(
                                         color: Colors.red,
                                         fontWeight: FontWeight.w400,

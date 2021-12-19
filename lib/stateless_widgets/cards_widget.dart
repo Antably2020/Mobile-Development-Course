@@ -1,3 +1,4 @@
+import 'package:exchange_app/models/offers.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/screens/card_details_screen.dart';
@@ -19,9 +20,9 @@ class _CardSquare extends State<CardSquare> {
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
-          childAspectRatio: 0.75,
+          childAspectRatio: 1,
         ),
-        itemCount: items.length,
+        itemCount: allOffers.length,
         itemBuilder: (BuildContext ctxt, int index) {
           return InkWell(
             onTap: () {
@@ -35,27 +36,27 @@ class _CardSquare extends State<CardSquare> {
               children: [
                 Container(
                   padding: EdgeInsets.all(20),
-                  // For  demo we use fixed height  and width
-                  // Now we dont need them
-                  // height: 180,
-                  // width: 160,
+                 
+                   height: 140,
+                   width: 160,
                   decoration: BoxDecoration(
                     color: items[index].color,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Text(items[index].title),
+                  child:  Image.asset("assets/" + allOffers[index].image),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20 / 4),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Text(
-                    // products is out demo list
-                    items[index].description,
-                    style: TextStyle(color: Colors.amber),
-                  ),
+                      // products is out demo list
+                      allOffers[index].name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                 ),
+                
                 Text(
-                  "\$${items[index].price}",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  "\Traded with: ${allOffers[index].Tradedwith}",
+                  
                 )
               ],
             ),

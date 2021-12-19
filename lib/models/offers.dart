@@ -9,8 +9,13 @@ class Offers {
 }
 
 List<Offers> allOffers = [
-  Offers("Car", "Car", "Pending", "car.jpg", "car.jpg"),
-  Offers("Toy", "Toy", "accepted", "toy.jpg", "toy.jpg"),
-  Offers("Shoes", "Shoes", "rejected", "shoes.png", "shoes.png"),
+  Offers("Car", "Car", "Pending", "mob.png", "laptop.jpg"),
+  Offers("Toy", "Toy", "accepted", "shoes.png", "toy.jpg"),
   Offers("Guitar", "Mobile", "Pending", "guitar.png", "mob.png"),
+   Offers("Shoes", "Shoes", "rejected", "mob.png", "shoes.png"),
+  Offers("Guitar", "Mobile", "Pending", "guitar.png", "mob.png"),
+  Offers("Toy", "Toy", "accepted", "shoes.png", "toy.jpg"),
+    Offers("Toy", "Toy", "accepted", "shoes.png", "toy.jpg"),
+
+
 ];

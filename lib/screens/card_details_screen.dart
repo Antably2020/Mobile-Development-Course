@@ -68,7 +68,7 @@ class _card_details_screen extends State<card_details_screen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    widget.myData.price.toString() + ' \$',
+                                    widget.myData.title + ' \$',
                                     style: TextStyle(
                                         color: Colors.red,
                                         fontWeight: FontWeight.w400,
