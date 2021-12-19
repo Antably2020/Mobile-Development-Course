@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/screens/card_details_screen.dart';
 
-import 'card_det_widget.dart';
+import '../statefull_widgets/card_det_widget.dart';
 
 class CardSquare extends StatefulWidget {
   CardSquare({
