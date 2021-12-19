@@ -1,11 +1,12 @@
-import 'package:exchange_app/models/item.dart';
+
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/stateless_widgets/bar_widget.dart';
-import 'package:exchange_app/stateless_widgets/My_Products_widget.dart';
+import 'package:exchange_app/statefull_widgets/Add_Product_widget.dart';
 
-class My_List extends StatelessWidget {
-  const My_List({ Key? key }) : super(key: key);
+
+class Add_Product extends StatelessWidget {
+  const Add_Product({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +14,11 @@ class My_List extends StatelessWidget {
       drawer: startDrawer(),
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('exchange'),
+        title: Text('Add Product'),
         appBar: AppBar(),
 
       ),
-      body: My_Products_widget(),
+      body: AddProduct(),
       bottomNavigationBar: nav_bar_widget(),
     );
   }

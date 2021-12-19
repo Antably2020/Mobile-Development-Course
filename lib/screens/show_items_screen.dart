@@ -13,7 +13,7 @@ class Show_items extends StatelessWidget {
       drawer: startDrawer(),
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('exchange'),
+        title: Text('Show Items'),
         appBar: AppBar(),
 
       ),

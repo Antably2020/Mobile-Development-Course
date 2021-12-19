@@ -15,7 +15,7 @@ class My_Products extends StatelessWidget {
       drawer: startDrawer(),
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('exchange'),
+        title: Text('My Items'),
         appBar: AppBar(),
 
       ),

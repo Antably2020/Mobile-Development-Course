@@ -13,7 +13,7 @@ class SoldItemsScreen extends StatelessWidget {
       drawer: startDrawer(),
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('exchange'),
+        title: Text('Sold Items'),
         appBar: AppBar(),
 
       ),
