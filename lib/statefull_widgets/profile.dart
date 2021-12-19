@@ -44,9 +44,7 @@ class _MyHomePageState extends State<profile> {
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
+                    child: ElevatedButton(
                       child: Text('Change Password'),
                       onPressed: () {
                         Navigator.pushNamed(context, '/changepassword');

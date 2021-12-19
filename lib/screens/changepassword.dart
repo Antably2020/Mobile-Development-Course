@@ -1,4 +1,5 @@
 import 'package:exchange_app/statefull_widgets/changepass.dart';
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 
@@ -8,13 +9,13 @@ class changepassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
         title: Text('Change Password'),
         appBar: AppBar(),
       ),
       body: changepass(),
+      bottomNavigationBar: nav_bar_widget(),
     );
   }
 }

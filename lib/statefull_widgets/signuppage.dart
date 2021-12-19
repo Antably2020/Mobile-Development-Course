@@ -61,9 +61,7 @@ class _State extends State<signuppage> {
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
+                    child: ElevatedButton(
                       child: Text('Signup'),
                       onPressed: () {
                         print(nameController.text);
@@ -76,8 +74,7 @@ class _State extends State<signuppage> {
                     child: Row(
                   children: <Widget>[
                     Text('Already have an account?'),
-                    FlatButton(
-                      textColor: Colors.blue,
+                    TextButton(
                       child: Text(
                         'Login',
                         style: TextStyle(fontSize: 20),
