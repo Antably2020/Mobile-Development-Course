@@ -20,7 +20,9 @@ class _MyItems extends State<MyItems> {
                    actions: <Widget>[
     ElevatedButton(
      
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, '/sold');
+      },
       child: Text("Save"),
      
     ),
