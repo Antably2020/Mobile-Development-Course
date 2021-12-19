@@ -16,8 +16,6 @@ class _Product_DescriptionState extends State<Product_Description> {
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         backgroundColor: Colors.transparent,
         title: Padding(
           padding: const EdgeInsets.only(left: 0.0),
@@ -54,67 +52,63 @@ class _Product_DescriptionState extends State<Product_Description> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Text(widget.myData.title,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: "Oswald",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 44.0)),
                           Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                     widget.myData.title + ' \$',
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "Oswald",
-                                        fontSize: 43.0,
-                                        fontStyle: FontStyle.normal),
-                                  ),
-                                ],
-                              )),
+                            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            child: Text(widget.myData.title,
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "Oswald",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 30.0)),
+                          ),
                           SizedBox(
                             height: 6.0,
                           ),
                           Container(
-                            child: Text(
-                              widget.myData.description,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: "Poppins",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.0,
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                              child: Text(
+                                widget.myData.description,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: "Poppins",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 15.0,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
                           SizedBox(
                             height: 5.0,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
-crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                            mainAxisAlignment: MainAxisAlignment
+                                .center, //Center Row contents horizontally,
+                            crossAxisAlignment: CrossAxisAlignment
+                                .center, //Center Row contents vertically,
                             children: [
-                              
-                              Text('color:',
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: "Oswald",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: 24.0)),
-                              Container(
-                                width: 20,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: widget.myData.color,
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                                child: Text('color:',
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "Oswald",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 24.0)),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 60, 0, 0),
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: widget.myData.color,
+                                  ),
                                 ),
                               ),
                             ],
@@ -122,28 +116,6 @@ crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
                           SizedBox(
                             height: 15.0,
                           ),
-                          InkWell(
-                       
-                              onTap: () {},
-                              child: Container(
-                                padding: EdgeInsets.all(46.0),
-                                child: Center(
-                                  child: Text(
-                                    "Future Actions",
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: "Oswald",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 16.0),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(15.0))),
-                              )),
                         ],
                       ),
                     ),
