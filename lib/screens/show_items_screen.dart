@@ -1,11 +1,10 @@
-import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:exchange_app/stateless_widgets/cards_widget.dart';
 
-class Show_items extends StatelessWidget {
-  const Show_items({ Key? key }) : super(key: key);
+class Show_items_Screen extends StatelessWidget {
+  const Show_items_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +13,8 @@ class Show_items extends StatelessWidget {
         backgroundColor: Colors.blue,
         title: Text('Show Items'),
         appBar: AppBar(),
-
       ),
       body: CardSquare(),
-          
       bottomNavigationBar: nav_bar_widget(),
     );
   }

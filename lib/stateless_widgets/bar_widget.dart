@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Color backgroundColor ;
+  final Color backgroundColor;
   final Text title;
   final AppBar appBar;
- 
 
   /// you can add more fields that meet your needs
 
-
-  const BaseAppBar({Key?key, required this.backgroundColor,required this.title, required this.appBar})
+  const BaseAppBar(
+      {Key? key,
+      required this.backgroundColor,
+      required this.title,
+      required this.appBar})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: title,  
+      title: title,
       backgroundColor: backgroundColor,
-      
     );
   }
 
@@ -26,11 +27,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 }
 
-
-  ///
-  /// creates the circular avatar for the header
-  /// [CircleAvatar]
-  ///
+///
+/// creates the circular avatar for the header
+/// [CircleAvatar]
+///
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -65,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                   child: TextField(
                     decoration: InputDecoration(
-                        hintText: 'Search for something',
-                        prefixIcon: Icon(Icons.search),
-                       ),
+                      hintText: 'Search for something',
+                      prefixIcon: Icon(Icons.search),
+                    ),
                   ),
                 ),
               ),

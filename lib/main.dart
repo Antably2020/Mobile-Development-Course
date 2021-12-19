@@ -15,7 +15,7 @@ void main() {
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
-      '/items': (context) => Show_items(),
+      '/items': (context) => Show_items_Screen(),
       '/offers': (context) => my_offer(),
       '/sold': (context) => SoldItemsScreen(),
       '/addproducts': (context) => Add_Product(),
