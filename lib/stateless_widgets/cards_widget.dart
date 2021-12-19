@@ -37,7 +37,7 @@ class _CardSquare extends State<CardSquare> {
                 Container(
                   padding: EdgeInsets.all(20),
                  
-                   height: 140,
+                   height: 120,
                    width: 160,
                   decoration: BoxDecoration(
                     color: items[index].color,
