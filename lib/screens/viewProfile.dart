@@ -11,9 +11,9 @@ class viewProfile extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Profile'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-      ),
+    ),
       body: profile(),
       bottomNavigationBar: nav_bar_widget(),
     );

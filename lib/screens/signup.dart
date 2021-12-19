@@ -11,9 +11,9 @@ class signup extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Create account'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-      ),
+    ),
       body: signuppage(),
       bottomNavigationBar: nav_bar_widget(),
     );

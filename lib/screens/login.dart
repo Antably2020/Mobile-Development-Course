@@ -11,9 +11,9 @@ class login extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Login'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-      ),
+    ),
       body: loginpage(),
       bottomNavigationBar: nav_bar_widget(),
     );

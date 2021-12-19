@@ -14,10 +14,9 @@ class Add_Product extends StatelessWidget {
       
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Add Product'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-
-      ),
+    ),
       body: AddProduct(),
       bottomNavigationBar: nav_bar_widget(),
     );

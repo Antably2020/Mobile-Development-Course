@@ -9,9 +9,9 @@ class offers_recieved extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Offers Recieved'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-      ),
+    ),
       body: Padding(
           padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
           child: getOffers(context)),

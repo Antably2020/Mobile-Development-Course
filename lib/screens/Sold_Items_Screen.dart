@@ -13,10 +13,9 @@ class SoldItemsScreen extends StatelessWidget {
      
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Sold Items'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-
-      ),
+    ),
       body: SoldItems(title: 'My Sold Items',),
     );
   }

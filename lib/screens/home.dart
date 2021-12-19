@@ -9,7 +9,7 @@ class home extends StatelessWidget {
     return Scaffold(
     appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Show Items'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
     ),
      body: CardSquare(),

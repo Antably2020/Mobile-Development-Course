@@ -11,6 +11,11 @@ class My_ProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: BaseAppBar(
+        backgroundColor: Colors.blue,
+        title: Text('Exechange App'),
+        appBar: AppBar(),
+    ),
       body: MyItems(
         title: 'My Items',
       ),

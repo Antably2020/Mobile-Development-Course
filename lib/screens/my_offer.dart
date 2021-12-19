@@ -1,4 +1,5 @@
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
+import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/offers.dart';
 
@@ -6,15 +7,11 @@ class my_offer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "My Offers",
-            style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-          ),
-        ),
+        appBar: BaseAppBar(
+        backgroundColor: Colors.blue,
+        title: Text('Exechange App'),
+        appBar: AppBar(),
+    ),
         body: Padding(
             padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: getOffers(context)),

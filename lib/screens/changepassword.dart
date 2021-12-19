@@ -11,9 +11,9 @@ class changepassword extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
-        title: Text('Change Password'),
+        title: Text('Exechange App'),
         appBar: AppBar(),
-      ),
+    ),
       body: changepass(),
       bottomNavigationBar: nav_bar_widget(),
     );
