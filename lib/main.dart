@@ -13,7 +13,7 @@ import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/myitems',
+    initialRoute: '/',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),

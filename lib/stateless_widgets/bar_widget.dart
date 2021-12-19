@@ -53,8 +53,8 @@ class _HomePageState extends State<HomePage> {
             title: Text('Trading App'),
             actions: [
               IconButton(
-                icon: Icon(Icons.shopping_cart),
-                onPressed: () {},
+                icon: Icon(Icons.account_circle ),
+                onPressed: () {Navigator.pushNamed(context, '/myitems');},
               ),
             ],
             bottom: AppBar(
