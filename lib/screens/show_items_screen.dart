@@ -16,10 +16,8 @@ class Show_items extends StatelessWidget {
         appBar: AppBar(),
 
       ),
-      body: CardSquare(
-        product: Item(0, Colors.blue, "description", "assets/car.jpg", 99, "title",false),
-        
-      ),
+      body: CardSquare(),
+          
       bottomNavigationBar: nav_bar_widget(),
     );
   }
