@@ -3,8 +3,6 @@ import 'package:exchange_app/screens/show_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'stateless_widgets/categories_widget.dart';
 import 'screens/home.dart';
-import 'stateless_widgets/cards_widget.dart';
-import 'screens/My_ProductsScreen.dart';
 import 'screens/my_offer.dart';
 import 'package:exchange_app/screens/Sold_Items_Screen.dart';
 import 'package:exchange_app/screens/Add_Product_screen.dart';

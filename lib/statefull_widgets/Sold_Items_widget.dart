@@ -31,7 +31,9 @@ class _SoldItemsState extends State<SoldItems> {
                       ),
                       leading: Image.asset(items[index].image),
                     ),
-                  ));
-            }));
+                  )
+                  );
+            })
+            );
   }
 }
