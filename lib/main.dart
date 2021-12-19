@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/show_items_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +9,7 @@ import 'screens/my_offer.dart';
 import 'package:exchange_app/screens/Sold_Items_Screen.dart';
 import 'package:exchange_app/screens/Add_Product_screen.dart';
 import 'package:exchange_app/screens/My_ProductsScreen.dart';
+import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 
 void main() {
   runApp(MaterialApp(
