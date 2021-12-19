@@ -12,7 +12,7 @@ class Add_Product extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      appBar: BaseAppBar(
+       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
         title: Text('Exechange App'),
         appBar: AppBar(),
