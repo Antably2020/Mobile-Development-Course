@@ -95,9 +95,35 @@ class _Product_DescriptionState extends State<Product_Description> {
                             ),
                           ),
                           SizedBox(
-                            height: 25.0,
+                            height: 5.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                            children: [
+                              
+                              Text('color:',
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "Oswald",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 24.0)),
+                              Container(
+                                width: 20,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: widget.myData.color,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15.0,
                           ),
                           InkWell(
+                       
                               onTap: () {},
                               child: Container(
                                 padding: EdgeInsets.all(16.0),
@@ -116,7 +142,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 decoration: BoxDecoration(
                                     color: Colors.black,
                                     borderRadius: BorderRadius.all(
-                                        Radius.circular(25.0))),
+                                        Radius.circular(15.0))),
                               )),
                         ],
                       ),
@@ -124,7 +150,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.only(left: 0, top: 250, bottom: 20),
+                        const EdgeInsets.only(left: 0, top: 270, bottom: 0),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
