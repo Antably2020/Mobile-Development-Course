@@ -69,7 +69,7 @@ class _State extends State<loginpage> {
                         style: TextStyle(fontSize: 20),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/');
+                        Navigator.pushNamed(context, '/signup');
                       },
                     )
                   ],
