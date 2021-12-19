@@ -68,7 +68,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    widget.myData.title + ' \$',
+                                     widget.myData.title + ' \$',
                                     style: TextStyle(
                                         color: Colors.red,
                                         fontWeight: FontWeight.w400,
@@ -126,7 +126,7 @@ crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
                        
                               onTap: () {},
                               child: Container(
-                                padding: EdgeInsets.all(16.0),
+                                padding: EdgeInsets.all(46.0),
                                 child: Center(
                                   child: Text(
                                     "Future Actions",
