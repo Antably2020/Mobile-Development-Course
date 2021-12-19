@@ -7,8 +7,6 @@ class signuppage extends StatefulWidget {
 
 class _State extends State<signuppage> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
 
   String? _password;
 
@@ -35,14 +33,14 @@ class _State extends State<signuppage> {
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'User Name',
+                      labelText: 'Create UserName',
                     ),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: PasswordField(
-                    labelText: 'Password *',
+                    labelText: 'Create Password',
                     onFieldSubmitted: (String value) {
                       setState(() {
                         this._password = value;
@@ -53,7 +51,7 @@ class _State extends State<signuppage> {
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: PasswordField(
-                    labelText: 'Password *',
+                    labelText: 'Confirm Password',
                     onFieldSubmitted: (String value) {
                       setState(() {
                         this._password = value;
@@ -68,8 +66,7 @@ class _State extends State<signuppage> {
                       child: Text('Signup'),
                       onPressed: () {
                         print(nameController.text);
-                        print(passwordController.text);
-                        print(confirmPasswordController.text);
+
                         Navigator.pushNamed(context, '/login');
                       },
                     )),

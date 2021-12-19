@@ -7,7 +7,6 @@ class loginpage extends StatefulWidget {
 
 class _State extends State<loginpage> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
   String? _password;
 
@@ -56,7 +55,6 @@ class _State extends State<loginpage> {
                       child: Text('Login'),
                       onPressed: () {
                         print(nameController.text);
-                        print(passwordController.text);
                         Navigator.pushNamed(
                             context, '/'); // Nehot route el home page
                       },
