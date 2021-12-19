@@ -1,6 +1,6 @@
-import 'package:exchange_app/stateless_widgets/profile.dart';
+import 'package:exchange_app/statefull_widgets/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:exchange_app/stateless_widgets/bar.dart';
+import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 
 class viewProfile extends StatelessWidget {
   const viewProfile({Key? key}) : super(key: key);
