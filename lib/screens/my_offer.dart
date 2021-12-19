@@ -5,17 +5,17 @@ import 'package:exchange_app/models/offers.dart';
 class my_offer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
             "My Offers",
-            style: new TextStyle(
+            style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white),
           ),
         ),
-        body: new Padding(
+        body: Padding(
             padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: getOffers(context)),
             
@@ -34,28 +34,28 @@ class my_offer extends StatelessWidget {
 
   // First Attempt
   Widget _getItem(BuildContext context, int index) {
-    return new Card(
-        child: new Column(
+    return Card(
+        child: Column(
       children: <Widget>[
-        new ListTile(
-          leading: new Image.asset(
+        ListTile(
+          leading: Image.asset(
             "assets/" + allOffers[index].image,
             fit: BoxFit.cover,
             width: 100.0,
           ),
-          title: new Text(
+          title: Text(
             allOffers[index].name,
-            style: new TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
           ),
-          subtitle: new Column(
+          subtitle: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text('Status: ${allOffers[index].Status}',
-                    style: new TextStyle(
+                Text('Status: ${allOffers[index].Status}',
+                    style: TextStyle(
                         fontSize: 13.0, fontWeight: FontWeight.normal)),
-                new Text('Traded with: ${allOffers[index].Tradedwith}',
-                    style: new TextStyle(
+                Text('Traded with: ${allOffers[index].Tradedwith}',
+                    style: TextStyle(
                         fontSize: 11.0, fontWeight: FontWeight.normal)),
               ]),
         )

@@ -1,3 +1,4 @@
+import 'package:exchange_app/screens/card_details_screen.dart';
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/show_items_screen.dart';
 import 'package:flutter/material.dart';
