@@ -58,7 +58,7 @@ class _State extends State<loginpage> {
                         print(nameController.text);
                         print(passwordController.text);
                         Navigator.pushNamed(
-                            context, '/home'); // Nehot route el home page
+                            context, '/'); // Nehot route el home page
                       },
                     )),
                 Container(
