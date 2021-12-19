@@ -23,7 +23,7 @@ class _MyItems extends State<MyItems> {
       onPressed: () {
         Navigator.pushNamed(context, '/sold');
       },
-      child: Text("Save"),
+      child: Text("Sold Items"),
      
     ),
   ],
