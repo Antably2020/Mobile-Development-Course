@@ -12,7 +12,7 @@ class _MyHomePageState extends State<profile> {
         body: new Stack(
       children: <Widget>[
         ClipPath(
-          child: Container(color: Colors.black.withOpacity(0.8)),
+          child: Container(color: Colors.black.withOpacity(0.0)),
           clipper: getClipper(),
         ),
         Positioned(
@@ -21,10 +21,9 @@ class _MyHomePageState extends State<profile> {
             child: Column(
               children: <Widget>[
                 Container(
-                    width: 150.0,
-                    height: 150.0,
+                    width: 100.0,
+                    height: 100.0,
                     decoration: BoxDecoration(
-                        color: Colors.red,
                         image: DecorationImage(
                             image: NetworkImage(
                                 'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
@@ -33,16 +32,16 @@ class _MyHomePageState extends State<profile> {
                         boxShadow: [
                           BoxShadow(blurRadius: 7.0, color: Colors.black)
                         ])),
-                SizedBox(height: 90.0),
+                SizedBox(height: 20.0),
                 Text(
                   'Amr Hegazi',
                   style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat'),
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Container(
-                    height: 50,
+                    height: 40,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       child: Text('Change Password'),
@@ -51,17 +50,14 @@ class _MyHomePageState extends State<profile> {
                       },
                     )),
                 Container(
-                    height: 50,
+                    height: 40,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
+                    child: ElevatedButton(
                       child: Text('Log Out'),
                       onPressed: () {
                         Navigator.pushNamed(context, '/signup');
                       },
                     )),
-                SizedBox(height: 25.0),
               ],
             ))
       ],

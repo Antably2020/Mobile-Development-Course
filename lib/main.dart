@@ -15,7 +15,7 @@ import 'package:exchange_app/screens/viewProfile.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/login',
+    initialRoute: '/viewProfile',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
