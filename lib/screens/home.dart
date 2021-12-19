@@ -14,7 +14,7 @@ class home extends StatelessWidget {
     ),
      body: CardSquare(),
       
-      bottomNavigationBar: nav_bar_widget(),
+     bottomNavigationBar: nav_bar_widget(),
     );
   }
 }

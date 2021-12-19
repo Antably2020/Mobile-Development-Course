@@ -37,9 +37,12 @@ class _MyItems extends State<MyItems> {
                       subtitle: Text(
                         items[index].description,
                       ),
-                      leading: Image.asset(items[index].image),
+                      leading: Image.asset(items[index].image,
+                      fit: BoxFit.cover,
+                      width: 100.0,),
                     ),
-                  ));
+                  )
+                  );
             }));
   }
 }

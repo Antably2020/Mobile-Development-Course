@@ -40,17 +40,7 @@ class _AddProduct extends State<AddProduct> {
               return null;
             },
           ),
-           TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'Price',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Enter the Price';
-              }
-              return null;
-            },
-          ),
+    
 
            TextFormField(
             decoration: const InputDecoration(
@@ -64,25 +54,14 @@ class _AddProduct extends State<AddProduct> {
             },
           ),
 
-           TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'Price',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Enter the Price';
-              }
-              return null;
-            },
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.symmetric(vertical: 1.0),
             child: ElevatedButton(
               onPressed: () {
                 // Validate will return true if the form is valid, or false if
                 // the form is invalid.
                 if (_formKey.currentState!.validate()) {
-                  // Process data.
+                  
                 }
               },
               
@@ -98,5 +77,3 @@ class _AddProduct extends State<AddProduct> {
     );
   }
 }
-
-

@@ -23,7 +23,8 @@ class _nav_bar_widget extends State<nav_bar_widget> {
       } else {
         Navigator.pushNamed(context, '/offers_recieved');
       }
-    });
+    }
+    );
   }
 
   @override
@@ -35,15 +36,15 @@ class _nav_bar_widget extends State<nav_bar_widget> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_shopping_cart_outlined),
+          icon: Icon(Icons.my_library_books_rounded),
           label: 'my items',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_shopping_cart_outlined),
+          icon: Icon(Icons.my_library_books_outlined),
           label: 'my Offers',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline_outlined),
+          icon: Icon(Icons.add_box_rounded),
           label: 'Add Item',
         ),
         BottomNavigationBarItem(
