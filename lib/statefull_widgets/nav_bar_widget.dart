@@ -9,6 +9,7 @@ class nav_bar_widget extends StatefulWidget {
 
 class _nav_bar_widget extends State<nav_bar_widget> {
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -49,7 +50,7 @@ class _nav_bar_widget extends State<nav_bar_widget> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart),
-          label: 'Offer Recived',
+          label: 'Offer Recieved',
         ),
       ],
       currentIndex: _selectedIndex,

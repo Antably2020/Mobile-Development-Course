@@ -1,3 +1,5 @@
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
+import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/offers.dart';
 
@@ -5,18 +7,16 @@ class offers_recieved extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "My Offers",
-            style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87),
-          ),
-        ),
-        body: Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-            child: getOffers(context)));
+      appBar: BaseAppBar(
+        backgroundColor: Colors.blue,
+        title: Text('Offers Recieved'),
+        appBar: AppBar(),
+      ),
+      body: Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+          child: getOffers(context)),
+      bottomNavigationBar: nav_bar_widget(),
+    );
   }
 
   getOffers(BuildContext context) {
