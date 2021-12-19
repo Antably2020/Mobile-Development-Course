@@ -1,4 +1,3 @@
-import 'package:exchange_app/screens/card_details_screen.dart';
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/show_items_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ void main() {
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
-      '/items': (context) => Show_items_Screen(),
+      '/items': (context) => My_ProductsScreen(),
       '/offers': (context) => my_offer(),
       '/sold': (context) => SoldItemsScreen(),
       '/addproducts': (context) => Add_Product(),

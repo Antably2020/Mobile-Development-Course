@@ -1,7 +1,6 @@
 import 'package:exchange_app/models/offers.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
-import 'package:exchange_app/screens/card_details_screen.dart';
 
 import '../statefull_widgets/card_det_widget.dart';
 

@@ -20,6 +20,20 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: title,
       backgroundColor: backgroundColor,
+      actions: [
+    
+    Ink(
+          decoration: const ShapeDecoration(
+            color: Colors.grey,
+            shape: CircleBorder(),
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.person),
+            color: Colors.white,
+            onPressed: () {Navigator.pushNamed(context, '/viewProfile');},
+          ),
+        ),
+  ],
     );
   }
 
