@@ -12,6 +12,7 @@ import 'package:exchange_app/screens/login.dart';
 import 'package:exchange_app/screens/signup.dart';
 import 'package:exchange_app/screens/changepassword.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
+import 'package:exchange_app/screens/offers_recieved.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -29,6 +30,7 @@ void main() {
       '/signup': (context) => signup(),
       '/changepassword': (context) => changepassword(),
       '/viewProfile': (context) => viewProfile(),
+      '/offers_recieved': (context) => offers_recieved(),
     },
   ));
 }

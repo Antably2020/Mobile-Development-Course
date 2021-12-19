@@ -14,12 +14,14 @@ class _nav_bar_widget extends State<nav_bar_widget> {
       _selectedIndex = index;
       if (_selectedIndex == 0) {
         Navigator.pushNamed(context, '/');
-      }  else if (_selectedIndex == 1) {
+      } else if (_selectedIndex == 1) {
         Navigator.pushNamed(context, '/myitems');
       } else if (_selectedIndex == 2) {
         Navigator.pushNamed(context, '/offers');
-      } else {
+      } else if (_selectedIndex == 3) {
         Navigator.pushNamed(context, '/addproducts');
+      } else {
+        Navigator.pushNamed(context, '/offers_recieved');
       }
     });
   }
@@ -32,7 +34,6 @@ class _nav_bar_widget extends State<nav_bar_widget> {
           icon: Icon(Icons.home),
           label: 'Home',
         ),
-       
         BottomNavigationBarItem(
           icon: Icon(Icons.add_shopping_cart_outlined),
           label: 'my items',
@@ -44,6 +45,10 @@ class _nav_bar_widget extends State<nav_bar_widget> {
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle_outline_outlined),
           label: 'Add Item',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart),
+          label: 'Offer Recived',
         ),
       ],
       currentIndex: _selectedIndex,
