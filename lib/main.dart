@@ -9,7 +9,7 @@ import 'package:exchange_app/screens/Sold_Items_Screen.dart';
 import 'package:exchange_app/screens/Add_Product_screen.dart';
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/addproducts',
+    initialRoute: '/',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),

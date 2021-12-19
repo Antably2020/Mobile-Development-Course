@@ -8,7 +8,7 @@ class viewProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: startDrawer(),
+     
       appBar: BaseAppBar(
         backgroundColor: Colors.blue,
         title: Text('Profile'),

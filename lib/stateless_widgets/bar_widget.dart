@@ -26,74 +26,72 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 }
 
-Widget startDrawer() {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: const BoxDecoration(color: Colors.orangeAccent),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: const <Widget>[
-                FlutterLogo(
-                  size: 48.0,
-                ),
-                Text(
-                  " Example",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                ),
-                Text(
-                  "example@gmail.com",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          createDrawerListTiles(Icons.my_library_add_rounded, "Add Item"),
-          createDrawerListTiles(Icons.my_library_books_sharp, "My Items"),
-          createDrawerListTiles(Icons.slideshow, "Slideshow"),
-          createDrawerListTiles(Icons.build, "Tools"),
-          const Divider(),
-          createDrawerListTiles(Icons.share, "Share"),
-          createDrawerListTiles(Icons.send, "Send"),
-        ],
-      ),
-    );
-  }
-
-  ///
-  /// Account list tile
-  ///
-
-
-  ///
-  /// Drawer container list tiles
-  /// [IconData]
-  ///
-  Widget createDrawerListTiles(IconData icon, String title) {
-    return ListTile(
-      leading: Icon(
-        icon,
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16.0,
-        ),
-      ),
-      onTap: () {
-      },
-    );
-  }
 
   ///
   /// creates the circular avatar for the header
   /// [CircleAvatar]
   ///
 
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            pinned: true,
+            snap: false,
+            centerTitle: false,
+            title: Text('Trading App'),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () {},
+              ),
+            ],
+            bottom: AppBar(
+              title: Container(
+                width: double.infinity,
+                height: 40,
+                color: Colors.white,
+                child: Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'Search for something',
+                        prefixIcon: Icon(Icons.search),
+                       ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          // Other Sliver Widgets
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Container(
+                height: 400,
+                child: Center(
+                  child: Text(
+                    'Thias is a test',
+                  ),
+                ),
+              ),
+              Container(
+                height: 1000,
+                color: Colors.green,
+              ),
+            ]),
+          ),
+        ],
+      ),
+    );
+  }
+}
