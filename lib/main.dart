@@ -25,7 +25,6 @@ void main() {
       '/sold': (context) => SoldItemsScreen(),
       '/addproducts': (context) => Add_Product(),
       '/offersR': (context) => offers_recieved(),
-      '/myitems': (context) => My_ProductsScreen(),
       '/login': (context) => login(),
       '/signup': (context) => signup(),
       '/changepassword': (context) => changepassword(),

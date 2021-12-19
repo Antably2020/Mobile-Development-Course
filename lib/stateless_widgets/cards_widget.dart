@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/screens/card_details_screen.dart';
 
+import 'card_det_widget.dart';
+
 class CardSquare extends StatefulWidget {
   CardSquare({
     Key? key,
@@ -29,7 +31,7 @@ class _CardSquare extends State<CardSquare> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => card_details_screen(items[index])),
+                    builder: (context) => card_details(allOffers[index])),
               );
             },
             child: Column(
