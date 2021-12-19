@@ -17,7 +17,7 @@ class _nav_bar_widget extends State<nav_bar_widget> {
         Navigator.pushNamed(context, '/');
       }
       else if(_selectedIndex==1){
-        Navigator.pushNamed(context, '/mmm');
+        Navigator.pushNamed(context, '/items');
       }
       else{
         Navigator.pushNamed(context, '/categories');
