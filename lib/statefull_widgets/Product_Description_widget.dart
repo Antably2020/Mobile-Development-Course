@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 
-class MyProducts extends StatefulWidget {
+class Product_Description extends StatefulWidget {
   final Item myData;
 
-  MyProducts(this.myData);
+  Product_Description(this.myData);
 
   @override
-  _MyProductsState createState() => _MyProductsState();
+  _Product_DescriptionState createState() => _Product_DescriptionState();
 }
 
-class _MyProductsState extends State<MyProducts> {
+class _Product_DescriptionState extends State<Product_Description> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +126,6 @@ class _MyProductsState extends State<MyProducts> {
                     padding:
                         const EdgeInsets.only(left: 0, top: 250, bottom: 20),
                     child: Container(
-                      
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(

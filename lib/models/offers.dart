@@ -13,5 +13,4 @@ List<Offers> allOffers = [
   Offers("Toy", "Toy", "accepted", "toy.jpg", "toy.jpg"),
   Offers("Shoes", "Shoes", "rejected", "shoes.png", "shoes.png"),
   Offers("Guitar", "Mobile", "Pending", "guitar.png", "mob.png"),
-  Offers("Fan", "TV", "accepted", "fan.jpg", "tv.jpg"),
 ];

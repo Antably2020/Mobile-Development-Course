@@ -20,14 +20,15 @@ class _MyItems extends State<MyItems> {
         ),
         body: ListView.builder(
             padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
-             itemCount: items.length,
+            itemCount: items.length,
             itemBuilder: (BuildContext ctxt, int index) {
               return InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MyProducts(items[index])),
+                          builder: (context) =>
+                              Product_Description(items[index])),
                     );
                   },
                   child: Card(

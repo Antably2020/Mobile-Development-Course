@@ -15,18 +15,13 @@ class _SoldItemsState extends State<SoldItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       
         body: ListView.builder(
             padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
             itemCount: items.where((c) => c.sold == true).toList().length,
             itemBuilder: (BuildContext ctxt, int index) {
               return InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyProducts(items[index])),
-                    );
+                    Navigator.pushNamed(context, '/sold');
                   },
                   child: Card(
                     child: ListTile(
