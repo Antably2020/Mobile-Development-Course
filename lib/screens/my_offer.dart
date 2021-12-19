@@ -1,3 +1,4 @@
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/offers.dart';
 
@@ -11,12 +12,16 @@ class my_offer extends StatelessWidget {
             style: new TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87),
+                color: Colors.white),
           ),
         ),
         body: new Padding(
             padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-            child: getOffers(context)));
+            child: getOffers(context)),
+            
+          bottomNavigationBar: nav_bar_widget(),  
+            
+            );
   }
 
   getOffers(BuildContext context) {
