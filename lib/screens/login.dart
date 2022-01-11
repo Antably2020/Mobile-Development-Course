@@ -9,11 +9,7 @@ class login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Exechange App'),
-        appBar: AppBar(),
-    ),
+    
       body: loginpage(),
       bottomNavigationBar: nav_bar_widget(),
     );

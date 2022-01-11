@@ -1,4 +1,6 @@
+import 'package:exchange_app/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:exchange_app/statefull_widgets/bg_shape.dart';
 
 class loginpage extends StatefulWidget {
   @override
@@ -14,31 +16,61 @@ class _State extends State<loginpage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(0),
             child: ListView(
               children: <Widget>[
+                Stack(children: <Widget>[
+                  bg_shape(),
+                  Center(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(20, 100, 20, 20),
+                        child: Text(
+                          "LOGIN",
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )),
+                  ),
+                  Center(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(20, 140, 20, 20),
+                        child: Text(
+                          "Trading App",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        )),
+                  )
+                ]),
+                Center(
+                  child: Container(
+                      padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      child: Text(
+                        "WELCOME!",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      )),
+                ),
                 Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-                Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                   child: TextField(
                     controller: nameController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
                       labelText: 'User Name',
                     ),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 10),
                   child: PasswordField(
                     labelText: 'Password *',
                     onFieldSubmitted: (String value) {
@@ -50,7 +82,7 @@ class _State extends State<loginpage> {
                 ),
                 Container(
                     height: 50,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
                     child: ElevatedButton(
                       child: Text('Login'),
                       onPressed: () {
@@ -58,6 +90,10 @@ class _State extends State<loginpage> {
                         Navigator.pushNamed(
                             context, '/'); // Nehot route el home page
                       },
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(12, 242, 180, 1),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
                     )),
                 Container(
                     child: Row(
@@ -66,7 +102,10 @@ class _State extends State<loginpage> {
                     TextButton(
                       child: Text(
                         'Sign up',
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromRGBO(12, 242, 180, 1),
+                        ),
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, '/signup');
@@ -102,7 +141,7 @@ class _PasswordFieldState extends State<PasswordField> {
       obscureText: _obscureText,
       onFieldSubmitted: widget.onFieldSubmitted,
       decoration: InputDecoration(
-        border: const UnderlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
         filled: true,
         labelText: widget.labelText,
         suffixIcon: GestureDetector(
