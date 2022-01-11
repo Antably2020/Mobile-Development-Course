@@ -1,79 +1,124 @@
 import 'package:flutter/material.dart';
 
-class AddProduct extends StatefulWidget {
-  const AddProduct({Key? key}) : super(key: key);
+import 'package:exchange_app/statefull_widgets/bg_shape.dart';
 
+class AddProduct extends StatefulWidget {
   @override
-  State<AddProduct> createState() => _AddProduct();
+  _State createState() => _State();
 }
 
-class _AddProduct extends State<AddProduct> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+class _State extends State<AddProduct> {
+  TextEditingController nameController = TextEditingController();
+
 
   @override
-  
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'Product Name',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Product Name';
-              }
-              return null;
-            },
-          ),
-           TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'Enter your Description',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Product Description';
-              }
-              return null;
-            },
-          ),
-    
+    return Scaffold(
+        body: Padding(
+            padding: EdgeInsets.all(0),
+            child: ListView(
+              children: <Widget>[
+                Stack(children: <Widget>[
+                  bg_shape(),
+                  Center(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(20, 100, 20, 20),
+                        child: Text(
+                          "ADD PRODUCT",
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )),
+                  ),
+                  Center(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(20, 140, 20, 20),
+                        child: Text(
+                          "Trading App",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        )),
+                  )
+                ]),
+             
+                Container(
+                  padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      labelText: 'Product Title',
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
+                 child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      labelText: 'Trade With...',
+                    ),
+                  ),
+                ),
 
-           TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'Color',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Enter the Color';
-              }
-              return null;
-            },
-          ),
+                 Container(
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
+                 child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      labelText: 'Category',
+                    ),
+                  ),
+                ),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 1.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                if (_formKey.currentState!.validate()) {
-                  
-                }
-              },
+                Container(
+                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
+                  child: TextFormField(
+                  minLines: 2,
+                  maxLines: 5,
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    hintText: 'Description',
+                    hintStyle: TextStyle(
+                      color: Colors.grey
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    ),
+                  ),
+                ),
+                ),
+               
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                    child: ElevatedButton(
+                      child: Text('ADD PRODUCT'),
+                      onPressed: () {
+                        print(nameController.text);
+
+                        Navigator.pushNamed(context, '/items');
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(12, 242, 180, 1),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                    )),
               
-              child: const Text('Submit'),
-            ),
-          ),
-
-          
-        ],
-      ),
-      
-      
-    );
+              ],
+            )));
   }
 }
+
+
+
