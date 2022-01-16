@@ -171,9 +171,9 @@ class offer extends StatelessWidget {
                 ]),
                 Container(
                     height: 50,
-                    padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                    padding: EdgeInsets.fromLTRB(100, 10, 100, 0),
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
                     child: ElevatedButton(
-                       
                       child: Text('CHAT',
                           style: TextStyle(
                             color: Colors.black,
@@ -187,7 +187,6 @@ class offer extends StatelessWidget {
                           side: BorderSide(width: 2.0, color: Colors.black),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                              
                     )),
                 Container(
                     height: 50,

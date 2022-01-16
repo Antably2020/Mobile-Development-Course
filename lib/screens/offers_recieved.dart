@@ -56,7 +56,7 @@ class offers_recieved extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.pushNamed(context, '/offer');},
                     child: Text("Accept"),
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(80, 30), primary: Colors.green),
@@ -65,7 +65,7 @@ class offers_recieved extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.pushNamed(context, '/offer');},
                     child: Text("Reject"),
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(80, 30), primary: Colors.red),
