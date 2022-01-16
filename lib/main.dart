@@ -1,5 +1,6 @@
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/show_items_screen.dart';
+import 'package:exchange_app/statefull_widgets/offer.dart';
 import 'package:flutter/material.dart';
 import 'stateless_widgets/categories_widget.dart';
 import 'screens/home.dart';
@@ -12,10 +13,10 @@ import 'package:exchange_app/screens/signup.dart';
 import 'package:exchange_app/screens/changepassword.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
 import 'package:exchange_app/screens/offers_recieved.dart';
-
+import 'package:exchange_app/screens/Offer_Screen.dart';
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/login',
+    initialRoute: '/offer',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
@@ -29,6 +30,8 @@ void main() {
       '/changepassword': (context) => changepassword(),
       '/viewProfile': (context) => viewProfile(),
       '/offers_recieved': (context) => offers_recieved(),
+      '/offer': (context) => Offer_screen(),
+      
     },
   ));
 }
