@@ -16,7 +16,7 @@ import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/offer',
+    initialRoute: '/',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
