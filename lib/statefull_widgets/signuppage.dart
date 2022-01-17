@@ -1,6 +1,8 @@
+import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:exchange_app/statefull_widgets/bg_shape.dart';
+import 'package:provider/provider.dart';
 
 class signuppage extends StatefulWidget {
   @override
@@ -8,16 +10,33 @@ class signuppage extends StatefulWidget {
 }
 
 class _State extends State<signuppage> {
-  TextEditingController nameController = TextEditingController();
 
-  String? _password;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+     final authService=Provider.of<Auth>(context);
+          final emailController = TextEditingController();
+          final passwordController = TextEditingController();
+          final pController = TextEditingController();
+  validator(){
+  if(_formKey.currentState != null && _formKey.currentState!.validate()){
+    print("Validated");
+    authService.signup(emailController.text, passwordController.text);
+               Navigator.pushNamed(context, '/');
+  }
+  else{
+    print("Not Validated");
+  }
+}
+
     return Scaffold(
         body: Padding(
             padding: EdgeInsets.all(0),
-            child: ListView(
+            child:  Form(
+                key: _formKey,
+                child: ListView(
               children: <Widget>[
                 Stack(children: <Widget>[
                   bg_shape(),
@@ -58,14 +77,15 @@ class _State extends State<signuppage> {
                         ),
                       )),
                 ),
+               
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                   child: TextField(
-                    controller: nameController,
+                    controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
-                      labelText: 'Create UserName',
+                      labelText: 'Email',
                     ),
                   ),
                 ),
@@ -73,22 +93,15 @@ class _State extends State<signuppage> {
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
                   child: PasswordField(
                     labelText: 'Create Password',
-                    onFieldSubmitted: (String value) {
-                      setState(() {
-                        this._password = value;
-                      });
-                    },
+                   controller: pController,
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 10),
                   child: PasswordField(
                     labelText: 'Confirm Password',
-                    onFieldSubmitted: (String value) {
-                      setState(() {
-                        this._password = value;
-                      });
-                    },
+                    controller: passwordController,
+                    
                   ),
                 ),
                 Container(
@@ -97,15 +110,17 @@ class _State extends State<signuppage> {
                     child: ElevatedButton(
                       child: Text('Signup'),
                       onPressed: () {
-                        print(nameController.text);
-
-                        Navigator.pushNamed(context, '/login');
+                        
+                        validator();
                       },
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(12, 242, 180, 1),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30))),
-                    )),
+                              borderRadius: BorderRadius.circular(30))
+                              ),
+                    )
+                    ),
+                
                 Container(
                     child: Row(
                   children: <Widget>[
@@ -124,33 +139,43 @@ class _State extends State<signuppage> {
                     ),
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
-                ))
+                )
+                )
               ],
-            )));
+            )
+            )
+            )
+            );
   }
 }
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
-    this.labelText,
-    this.onFieldSubmitted,
+    this.labelText, this.controller,  
   });
 
   final String? labelText;
-  final ValueChanged<String>? onFieldSubmitted;
+  final TextEditingController? controller;
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
+
+  
 }
 
 class _PasswordFieldState extends State<PasswordField> {
   bool _obscureText = true;
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: _obscureText,
-      onFieldSubmitted: widget.onFieldSubmitted,
+      validator: (String? value){
+        if(value == null || value.trim().length == 0){
+          return "Field is required";
+        }
+        return null;
+      },
+      controller: widget.controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
         filled: true,

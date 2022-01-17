@@ -1,6 +1,8 @@
 import 'package:exchange_app/screens/login.dart';
+import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/bg_shape.dart';
+import 'package:provider/provider.dart';
 
 class loginpage extends StatefulWidget {
   @override
@@ -8,12 +10,14 @@ class loginpage extends StatefulWidget {
 }
 
 class _State extends State<loginpage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   String? _password;
 
   @override
   Widget build(BuildContext context) {
+    final authService=Provider.of<Auth>(context);
     return Scaffold(
         body: Padding(
             padding: EdgeInsets.all(0),
@@ -61,7 +65,7 @@ class _State extends State<loginpage> {
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                   child: TextField(
-                    controller: nameController,
+                    controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -78,6 +82,7 @@ class _State extends State<loginpage> {
                         this._password = value;
                       });
                     },
+                    controller: passwordController,
                   ),
                 ),
                 Container(
@@ -86,9 +91,7 @@ class _State extends State<loginpage> {
                     child: ElevatedButton(
                       child: Text('Login'),
                       onPressed: () {
-                        print(nameController.text);
-                        Navigator.pushNamed(
-                            context, '/'); // Nehot route el home page
+                        authService.login(emailController.text, passwordController.text);
                       },
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(12, 242, 180, 1),
@@ -122,12 +125,13 @@ class _State extends State<loginpage> {
 class PasswordField extends StatefulWidget {
   const PasswordField({
     this.labelText,
+    this.controller,
     this.onFieldSubmitted,
   });
 
   final String? labelText;
   final ValueChanged<String>? onFieldSubmitted;
-
+  final TextEditingController? controller;
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
 }
@@ -140,6 +144,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return TextFormField(
       obscureText: _obscureText,
       onFieldSubmitted: widget.onFieldSubmitted,
+      controller: widget.controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
         filled: true,
