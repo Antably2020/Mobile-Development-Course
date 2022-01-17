@@ -16,7 +16,7 @@ import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
+    initialRoute: '/items',
     routes: {
       '/': (context) => home(),
       '/categories': (context) => categories(),
@@ -31,6 +31,7 @@ void main() {
       '/viewProfile': (context) => viewProfile(),
       '/offers_recieved': (context) => offers_recieved(),
       '/offer': (context) => Offer_screen(),
+      
       
     },
   ));
