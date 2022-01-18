@@ -1,6 +1,6 @@
 import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:form_validator/form_validator.dart';
 import 'package:exchange_app/statefull_widgets/bg_shape.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +18,8 @@ class _State extends State<signuppage> {
   Widget build(BuildContext context) {
      final authService=Provider.of<Auth>(context);
           final emailController = TextEditingController();
+          final confirmPasswordController = TextEditingController();
           final passwordController = TextEditingController();
-          final pController = TextEditingController();
   validator(){
   if(_formKey.currentState != null && _formKey.currentState!.validate()){
     print("Validated");
@@ -80,8 +80,9 @@ class _State extends State<signuppage> {
                
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
-                  child: TextField(
+                  child: TextFormField(
                     controller: emailController,
+                    validator: ValidationBuilder().email().required().build(),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -93,14 +94,24 @@ class _State extends State<signuppage> {
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
                   child: PasswordField(
                     labelText: 'Create Password',
-                   controller: pController,
+                   controller: passwordController,
+                   validate: ValidationBuilder().required().minLength(7).build(),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 10),
                   child: PasswordField(
                     labelText: 'Confirm Password',
-                    controller: passwordController,
+                    controller: confirmPasswordController,
+                    validate: (String? value){
+                      if(value == null || value.trim().length == 0){
+                       return "Field is required";
+                          }
+                      if(passwordController.text!=confirmPasswordController.text){
+                        return "Password does not match";
+                      }
+                      return null;
+                    },
                     
                   ),
                 ),
@@ -151,12 +162,12 @@ class _State extends State<signuppage> {
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
-    this.labelText, this.controller,  
+    this.labelText, this.controller, this.validate,  
   });
 
   final String? labelText;
   final TextEditingController? controller;
-
+  final FormFieldValidator<String>? validate;
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
 
@@ -169,12 +180,7 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: _obscureText,
-      validator: (String? value){
-        if(value == null || value.trim().length == 0){
-          return "Field is required";
-        }
-        return null;
-      },
+      validator: widget.validate,
       controller: widget.controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),

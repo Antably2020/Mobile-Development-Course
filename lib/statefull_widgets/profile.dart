@@ -1,4 +1,6 @@
+import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class profile extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class profile extends StatefulWidget {
 class _MyHomePageState extends State<profile> {
   @override
   Widget build(BuildContext context) {
+         final authService=Provider.of<Auth>(context);
+
     return new Scaffold(
         body: new Stack(
       children: <Widget>[
@@ -54,8 +58,8 @@ class _MyHomePageState extends State<profile> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       child: Text('Log Out'),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
+                      onPressed: () async {
+                        await authService.signout();
                       },
                     )),
               ],

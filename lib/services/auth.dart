@@ -22,9 +22,10 @@ Future<User?> login(String email, String password) async
 final credential = await _auth.signInWithEmailAndPassword(email: email, password: password);
 return _userFromFirebase(credential.user);
   }
-  catch(e)
+  on au.FirebaseAuthException catch(e)
   {
     print(e);
+    
   }
 }
 Future<User?> signup(String email, String password) async
@@ -35,7 +36,9 @@ return _userFromFirebase(credential.user);
  }
   catch(e)
   {
+    
     print(e);
+    
   }
 }
 
