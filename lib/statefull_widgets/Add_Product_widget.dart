@@ -122,6 +122,7 @@ class _State extends State<AddProduct> {
     _prod.tradeWith = _TWController.text;
     _prod.category = _CatController.text;
     _prod.description = _DescController.text;
+    _prod.created = DateTime.now();
 
     String uid = FirebaseAuth.instance.currentUser!.uid;
 
@@ -130,5 +131,10 @@ class _State extends State<AddProduct> {
         .doc(uid)
         .collection("Products")
         .add(_prod.toJson());
+
+    _TitleController.text = '';
+    _TWController.text = '';
+    _CatController.text = '';
+    _DescController.text = '';
   }
 }

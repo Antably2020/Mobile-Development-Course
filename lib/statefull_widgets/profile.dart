@@ -34,6 +34,7 @@ class _MyHomePageState extends State<profile> {
                     radius: 65,
                   ),
                 ),
+                Row(),
               ],
             ),
           ],

@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/viewProfile',
+        initialRoute: '/',
         routes: {
           '/': (context) => Root(),
           '/categories': (context) => categories(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:exchange_app/models/ProductModel.dart';
+
 /*
 class Product_Description extends StatefulWidget {
   final Item myData;

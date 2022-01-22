@@ -448,11 +448,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-<<<<<<< Updated upstream
-sdks:
-  dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.16.0"
-=======
   win32:
     dependency: transitive
     description:
@@ -470,4 +465,3 @@ sdks:
 sdks:
   dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.5.0"
->>>>>>> Stashed changes
