@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:exchange_app/models/item.dart';
 
 class Product_Description extends StatefulWidget {
@@ -194,10 +195,46 @@ class _Product_DescriptionState extends State<Product_Description> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                         )),
+                           Container(
+                  padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+                  child: Center(
+                    child: CircularProfileAvatar(
+                      '',
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: new DecorationImage(
+                            image: ExactAssetImage('assets/egypt.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        width: double.infinity,
+                        height: 200,
+                      ),
+                      borderWidth: 3,
+                      elevation: 10,
+                      radius: 35,
+                    ),
+                  ),
+                ),
+                 Container(
+                   decoration: BoxDecoration(color: Colors.white,),
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: Center(
+                    child: Text(
+                      'Mahmoud Zoair',
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0),
+                    ),
+                  ),
+                ),
+             
                   ],
                 )
               ],
             ),
+
           ],
         ),
       ),
