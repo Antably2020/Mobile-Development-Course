@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:exchange_app/statefull_widgets/bg_shape2.dart';
+import 'package:exchange_app/shapes/bg_shape2.dart';
 
 class offer extends StatelessWidget {
   const offer({Key? key}) : super(key: key);

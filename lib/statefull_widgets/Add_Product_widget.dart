@@ -4,7 +4,7 @@ import 'package:exchange_app/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'package:exchange_app/statefull_widgets/bg_shape.dart';
+import 'package:exchange_app/shapes/bg_shape.dart';
 
 class AddProduct extends StatefulWidget {
   @override

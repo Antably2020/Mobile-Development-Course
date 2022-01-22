@@ -145,7 +145,7 @@ class _card_details extends State<card_details> {
           )
         ],
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
+   
     );
   }
 }
