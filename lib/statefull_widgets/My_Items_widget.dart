@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-
+import 'package:exchange_app/statefull_widgets/bg_shape3.dart';
 class MyItems extends StatefulWidget {
   MyItems({Key? key, required this.title}) : super(key: key);
 
@@ -14,58 +14,77 @@ class MyItems extends StatefulWidget {
 class _MyItems extends State<MyItems> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
+    return Scaffold(appBar: AppBar(
+      iconTheme: IconThemeData(color: Colors.black),
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_rounded),
+              ),
+              titleSpacing: 0,
+              title: new Text(
+                widget.title,
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+      
+       actions: <Widget>[
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+    primary: Color.fromRGBO(245, 245, 245, 1),
+    onPrimary: Colors.black, ),
             onPressed: () {
               Navigator.pushNamed(context, '/sold');
             },
             child: Text("Sold Items"),
+            
           ),
+        
         ],
       ),
-      body: Column(
+      body:  Stack(children: <Widget>[
+                  bg_shape3(),Column(
         children: [
           Container(
-                  child:ListTile(
-                    leading: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                      size: 28,
-                    ),
-                    title: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'search For Item...',
-                        hintStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                        ),
-                        border: InputBorder.none,
-                      ),
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),),
+            child: ListTile(
+              leading: Icon(
+                Icons.search,
+                color:  Colors.black,
+                size: 28,
+              ),
+              title: TextField(
+                decoration: InputDecoration(
+                  hintText: 'search For Item...',
+                  hintStyle: TextStyle(
+                    color:  Colors.black,
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
                   ),
+                  border: InputBorder.none,
+                ),
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
           Row(
             children: [
               Column(
                 children: [
-                  
                   Container(
                     padding: EdgeInsets.fromLTRB(25, 10, 50, 0),
                     child: Text('New Products',
                         style: TextStyle(
-                          color: Colors.black,
+                          color:  Color.fromARGB(255, 12, 242, 180),
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         )),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(20, 10, 50, 0),
+                    padding: EdgeInsets.fromLTRB(20, 10, 50, 10),
                     child: Text('Showing All Products',
                         style: TextStyle(
                           color: Colors.black,
@@ -76,31 +95,24 @@ class _MyItems extends State<MyItems> {
                 ],
               ),
               Container(
-                  height: 50,
-                  margin: EdgeInsets.fromLTRB(70, 10, 0, 0),
-                  child: ElevatedButton(
-                    child: IconTheme(
-                      data: IconThemeData(color: Colors.black),
-                      child: Icon(
-                        Icons.sort,
-                        size: 30,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        items = items.reversed.toList();
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(245, 245, 245, 1),
-                    ),
-                  )),
+                height: 40,
+                margin: EdgeInsets.fromLTRB(90, 10, 0, 5),
+                child: IconButton(
+                  icon: const Icon(Icons.sort),
+                  color:  Color.fromARGB(255, 12, 242, 180),
+                  onPressed: () {
+                    setState(() {
+                      items = items.reversed.toList();
+                    });
+                  },
+                ),
+              ),
             ],
           ),
           Expanded(
               child: ListView.builder(
                   padding:
-                      EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
+                      EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
                   itemCount: items.length,
                   itemBuilder: (BuildContext ctxt, int index) {
                     return InkWell(
@@ -112,14 +124,26 @@ class _MyItems extends State<MyItems> {
                                     Product_Description(items[index])),
                           );
                         },
-                        child: Card(
+                        child: Container(
                           child: Column(
                             children: [
+                              Container(child: Divider(color: Colors.black)),
                               ListTile(
-                                title: Text(items[index].title),
+                                title: Text(items[index].title, maxLines: 1,
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                     
+                                      color: Colors.black),),
                                 subtitle: Text(
-                                  items[index].description,
+                                  'created: 15/5/22 3:33pm\n'+items[index].description ,
+                                  maxLines: 4,
+                                  style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.black),
                                 ),
+                                hoverColor: Colors.blue,
                                 leading: Container(
                                   padding: EdgeInsets.only(
                                       left: 0, top: 0, right: 0, bottom: 0),
@@ -137,7 +161,7 @@ class _MyItems extends State<MyItems> {
                         ));
                   })),
         ],
-      ),
+      ),]),
     );
   }
 }
