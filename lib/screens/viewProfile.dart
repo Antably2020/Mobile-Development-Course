@@ -1,3 +1,4 @@
+import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:exchange_app/statefull_widgets/profile.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class viewProfile extends StatelessWidget {
         title: Text('Exechange App'),
         appBar: AppBar(),
     ),
-      body: profile(),
+      body: profile(title: 'My Profile',),
       bottomNavigationBar: nav_bar_widget(),
     );
   }

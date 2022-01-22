@@ -1,10 +1,17 @@
 import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/statefull_widgets/bg_shape2.dart';
+import 'package:exchange_app/statefull_widgets/bg_shape_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 
+import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
+import 'package:exchange_app/models/item.dart';
+
 class profile extends StatefulWidget {
+  profile({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
@@ -19,22 +26,114 @@ class _MyHomePageState extends State<profile> {
       children: <Widget>[
         Stack(
           children: <Widget>[
-            bg_shape2(),
+            bg_shape_profile(),
             Column(
               children: [
-                Center(
-                  child: CircularProfileAvatar(
-                    '',
-                    child: Icon(
-                      Icons.person,
-                      size: 100,
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  child: Center(
+                    child: Text(
+                      'Mahmoud Zoair',
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28.0),
                     ),
-                    borderWidth: 3,
-                    elevation: 10,
-                    radius: 65,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+                  child: Center(
+                    child: CircularProfileAvatar(
+                      '',
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: new DecorationImage(
+                            image: ExactAssetImage('assets/egypt.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        width: double.infinity,
+                        height: 200,
+                      ),
+                      borderWidth: 3,
+                      elevation: 10,
+                      radius: 55,
+                    ),
                   ),
                 ),
                 Row(),
+                
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: TextField(
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.account_circle_outlined ,
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                      ),
+                      labelText: "mahmoud zoair",
+                    ),
+                  ),
+                ),
+                Container(child: Divider(color: Colors.black)),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: TextField(
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.date_range_outlined ,
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                      ),
+                      labelText: "28/2/2000",
+                    ),
+                  ),
+                ),
+                Container(child: Divider(color: Colors.black)),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: TextField(
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.phone_iphone ,
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                      ),
+                      labelText: "+20 1144494566",
+                    ),
+                  ),
+                ),
+                Container(child: Divider(color: Colors.black)),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: TextField(
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.mail_outline,
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                      ),
+                      labelText: "mahmoudzoair@gmail.com",
+                    ),
+                  ),
+                ),
+                Container(child: Divider(color: Colors.black)),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: TextField(
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.remove_red_eye_outlined ,
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                      ),
+                      labelText: "Password",
+                    ),
+                  ),
+                ),
+                Container(child: Divider(color: Colors.black)),
               ],
             ),
           ],
@@ -44,74 +143,3 @@ class _MyHomePageState extends State<profile> {
     ));
   }
 }
-
-class getClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = new Path();
-
-    path.lineTo(0.0, size.height / 1.9);
-    path.lineTo(size.width + 125, 0.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    return true;
-  }
-}
-/*
- ClipPath(
-              child: Container(color: Colors.black.withOpacity(0.0)),
-              clipper: getClipper(),
-            ),
-            Positioned(
-                width: 350.0,
-                top: MediaQuery.of(context).size.height / 5,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.all(Radius.circular(75.0)),
-                            boxShadow: [
-                              BoxShadow(blurRadius: 7.0, color: Colors.black)
-                            ])),
-                    SizedBox(height: 20.0),
-                    Text(
-                      'Amr Hegazi',
-                      style: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Container(
-                        height: 40,
-                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: ElevatedButton(
-                          child: Text('Change Password'),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/changepassword');
-                          },
-                        )),
-                    Container(
-                        height: 40,
-                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: ElevatedButton(
-                          child: Text('Log Out'),
-                          onPressed: () async {
-                            await authService.signout();
-                          },
-                        )),
-                  ],
-                )
-                )
-          ],
-      */
