@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:exchange_app/models/item.dart';
+
 class Product_Description extends StatefulWidget {
   final Item myData;
 
@@ -59,14 +60,28 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 Stack(
                                   children: <Widget>[
                                     Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(20, 0, 0, 20),
+                                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                                       decoration: BoxDecoration(
+                                        color: const Color(0xffffff),
                                         image: new DecorationImage(
                                           image: ExactAssetImage(
                                               widget.myData.image),
-                                          fit: BoxFit.fitHeight,
+                                          fit: BoxFit.fill,
                                         ),
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(0),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: Offset(0,
+                                                3), // changes position of shadow
+                                          ),
+                                        ],
                                       ),
                                       width: double.infinity,
                                       height: 200,
@@ -83,7 +98,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                         ],
                                       ),
                                       margin:
-                                          EdgeInsets.fromLTRB(250, 200, 20, 20),
+                                          EdgeInsets.fromLTRB(260, 170, 20, 20),
                                       child: Center(
                                         child: CircleAvatar(
                                           radius: 20,
