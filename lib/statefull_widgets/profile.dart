@@ -1,6 +1,8 @@
 import 'package:exchange_app/services/auth.dart';
+import 'package:exchange_app/statefull_widgets/bg_shape2.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 
 class profile extends StatefulWidget {
   @override
@@ -10,60 +12,34 @@ class profile extends StatefulWidget {
 class _MyHomePageState extends State<profile> {
   @override
   Widget build(BuildContext context) {
-         final authService=Provider.of<Auth>(context);
+    final authService = Provider.of<Auth>(context);
 
     return new Scaffold(
-        body: new Stack(
+        body: ListView(
       children: <Widget>[
-        ClipPath(
-          child: Container(color: Colors.black.withOpacity(0.0)),
-          clipper: getClipper(),
-        ),
-        Positioned(
-            width: 350.0,
-            top: MediaQuery.of(context).size.height / 5,
-            child: Column(
-              children: <Widget>[
-                Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.all(Radius.circular(75.0)),
-                        boxShadow: [
-                          BoxShadow(blurRadius: 7.0, color: Colors.black)
-                        ])),
-                SizedBox(height: 20.0),
-                Text(
-                  'Amr Hegazi',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
+        Stack(
+          children: <Widget>[
+            bg_shape2(),
+            Column(
+              children: [
+                Center(
+                  child: CircularProfileAvatar(
+                    '',
+                    child: Icon(
+                      Icons.person,
+                      size: 100,
+                    ),
+                    borderWidth: 3,
+                    elevation: 10,
+                    radius: 65,
                   ),
                 ),
-                Container(
-                    height: 40,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      child: Text('Change Password'),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/changepassword');
-                      },
-                    )),
-                Container(
-                    height: 40,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      child: Text('Log Out'),
-                      onPressed: () async {
-                        await authService.signout();
-                      },
-                    )),
+                Row(),
               ],
-            ))
+            ),
+          ],
+        ),
+        SizedBox(height: 20.0),
       ],
     ));
   }
@@ -86,3 +62,56 @@ class getClipper extends CustomClipper<Path> {
     return true;
   }
 }
+/*
+ ClipPath(
+              child: Container(color: Colors.black.withOpacity(0.0)),
+              clipper: getClipper(),
+            ),
+            Positioned(
+                width: 350.0,
+                top: MediaQuery.of(context).size.height / 5,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.all(Radius.circular(75.0)),
+                            boxShadow: [
+                              BoxShadow(blurRadius: 7.0, color: Colors.black)
+                            ])),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Amr Hegazi',
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                        height: 40,
+                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        child: ElevatedButton(
+                          child: Text('Change Password'),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/changepassword');
+                          },
+                        )),
+                    Container(
+                        height: 40,
+                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        child: ElevatedButton(
+                          child: Text('Log Out'),
+                          onPressed: () async {
+                            await authService.signout();
+                          },
+                        )),
+                  ],
+                )
+                )
+          ],
+      */

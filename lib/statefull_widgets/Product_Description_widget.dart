@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:exchange_app/models/item.dart';
 
+/*
 class Product_Description extends StatefulWidget {
   final Item myData;
 
@@ -128,7 +128,8 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 SizedBox(
                                   height: 6.0,
                                 ),
-                                Container( padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
                                   child: Text(
                                     'Description',
                                     style: const TextStyle(
@@ -139,7 +140,8 @@ class _Product_DescriptionState extends State<Product_Description> {
                                       fontSize: 20.0,
                                     ),
                                     //   textAlign: TextAlign.center,
-                                  ),),
+                                  ),
+                                ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
                                   child: Text(
@@ -157,39 +159,32 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 SizedBox(
                                   height: 5.0,
                                 ),
-                            
-                                
                               ],
                             ),
                           ),
                         ),
                       ],
                     ),
-                        Container(
-                    height: 50,
-                    padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: ElevatedButton(
-                      child: Text('Make Offer'),
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, '/'); // Nehot route el home page
-                      },
-                      style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 12, 242, 180),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                    )),
+                    Container(
+                        height: 50,
+                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: ElevatedButton(
+                          child: Text('Make Offer'),
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, '/'); // Nehot route el home page
+                          },
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 12, 242, 180),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                        )),
                   ],
-                  
                 )
-                
               ],
-              
             ),
           ],
-          
         ),
-        
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -238,3 +233,4 @@ class StarRating extends StatelessWidget {
             new List.generate(starCount, (index) => buildStar(context, index)));
   }
 }
+*/            

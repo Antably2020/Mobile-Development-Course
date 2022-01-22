@@ -1,6 +1,6 @@
 import 'package:exchange_app/models/offers.dart';
 import 'package:flutter/material.dart';
-import 'package:exchange_app/models/item.dart';
+import 'package:exchange_app/models/ProductModel.dart';
 
 import '../statefull_widgets/card_det_widget.dart';
 
@@ -37,27 +37,23 @@ class _CardSquare extends State<CardSquare> {
               children: [
                 Container(
                   padding: EdgeInsets.all(20),
-                 
-                   height: 120,
-                   width: 160,
+                  height: 120,
+                  width: 160,
                   decoration: BoxDecoration(
-                    color: items[index].color,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child:  Image.asset("assets/" + allOffers[index].image),
+                  child: Image.asset("assets/" + allOffers[index].image),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Text(
-                      // products is out demo list
-                      allOffers[index].name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    // products is out demo list
+                    allOffers[index].name,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
-                
                 Text(
                   "\Traded with: ${allOffers[index].Tradedwith}",
-                  
                 )
               ],
             ),

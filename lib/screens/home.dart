@@ -7,14 +7,13 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: BaseAppBar(
+      appBar: BaseAppBar(
         backgroundColor: Colors.blue,
         title: Text('Exechange App'),
         appBar: AppBar(),
-    ),
-     body: CardSquare(),
-      
-     bottomNavigationBar: nav_bar_widget(),
+      ),
+      body: CardSquare(),
+      bottomNavigationBar: nav_bar_widget(),
     );
   }
 }
