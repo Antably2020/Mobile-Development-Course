@@ -13,22 +13,8 @@ class signup extends StatelessWidget {
         children: <Widget>[
           Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: new AppBar(
-              iconTheme: IconThemeData(color: Colors.black),
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_ios_rounded),
-              ),
-              titleSpacing: 0,
-              title: new Text(
-                "Register",
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Colors.transparent,
-              elevation: 0.0,
-            ),
+          
+             extendBodyBehindAppBar: true,
             body: signuppage(),
           ),
         ],

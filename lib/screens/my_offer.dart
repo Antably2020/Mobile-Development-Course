@@ -12,6 +12,8 @@ class my_offer extends StatelessWidget {
         title: Text('Exechange App'),
         appBar: AppBar(),
     ),
+    
+             extendBodyBehindAppBar: true,
         body: Padding(
             padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: getOffers(context)),

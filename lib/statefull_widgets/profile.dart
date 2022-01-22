@@ -134,6 +134,20 @@ class _MyHomePageState extends State<profile> {
                   ),
                 ),
                 Container(child: Divider(color: Colors.black)),
+
+                Container(
+                      height: 50,
+                      padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                      child: ElevatedButton(
+                        child: Text('Update'),
+                        onPressed: () async{
+                        
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(12, 242, 180, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30))),
+                      )),
               ],
             ),
           ],

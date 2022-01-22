@@ -11,6 +11,8 @@ class My_Products_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+             extendBodyBehindAppBar: true,
       body: MyItems(
         title: 'My Items',
       ),

@@ -86,7 +86,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                       width: double.infinity,
                                       height: 200,
                                     ),
-                                    Container(
+                                  /*  Container(
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         shape: BoxShape.circle,
@@ -113,11 +113,11 @@ class _Product_DescriptionState extends State<Product_Description> {
                                           ),
                                         ),
                                       ),
-                                    ),
+                                    ),*/
                                   ],
                                 ),
                                 Container(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
+                                  padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
                                   child: Text(widget.myData.title,
                                       style: const TextStyle(
                                           color: Colors.black,
