@@ -44,9 +44,9 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => Root(),
           '/categories': (context) => categories(),
-          '/items': (context) => My_ProductsScreen(),
+          '/items': (context) => My_Products_Screen(),
           '/offers': (context) => my_offer(),
-          //'/sold': (context) => SoldItemsScreen(),
+          '/sold': (context) => SoldItemsScreen(),
           '/addproducts': (context) => Add_Product(),
           '/offersR': (context) => offers_recieved(),
           '/login': (context) => login(),

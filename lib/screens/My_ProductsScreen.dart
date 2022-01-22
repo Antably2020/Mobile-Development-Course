@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:exchange_app/statefull_widgets/My_Items_widget.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-/*
-class My_ProductsScreen extends StatelessWidget {
-  const My_ProductsScreen({Key? key}) : super(key: key);
+
+class My_Products_Screen extends StatelessWidget {
+  const My_Products_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,4 +18,3 @@ class My_ProductsScreen extends StatelessWidget {
     );
   }
 }
-*/
