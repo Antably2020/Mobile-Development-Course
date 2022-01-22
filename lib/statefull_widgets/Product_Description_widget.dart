@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/*
+import 'package:exchange_app/models/item.dart';
 class Product_Description extends StatefulWidget {
   final Item myData;
 
@@ -233,4 +233,3 @@ class StarRating extends StatelessWidget {
             new List.generate(starCount, (index) => buildStar(context, index)));
   }
 }
-*/            

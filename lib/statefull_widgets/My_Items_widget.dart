@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/statefull_widgets/bg_shape3.dart';
-/*
+import 'package:exchange_app/models/item.dart';
+
 class MyItems extends StatefulWidget {
   MyItems({Key? key, required this.title}) : super(key: key);
 
@@ -15,7 +16,7 @@ class MyItems extends StatefulWidget {
 class _MyItems extends State<MyItems> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
+
     return Scaffold(appBar: AppBar(
       iconTheme: IconThemeData(color: Colors.black),
               leading: IconButton(
@@ -32,14 +33,7 @@ class _MyItems extends State<MyItems> {
               backgroundColor: Colors.transparent,
               elevation: 0.0,
       
-       actions: <Widget>[
-=======
-    return Scaffold(
-<<<<<<< Updated upstream
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
->>>>>>> 5f0a9922682d1f573bbe4ca04a8257acf728846e
+      actions: <Widget>[
           ElevatedButton(
             style: ElevatedButton.styleFrom(
     primary: Color.fromRGBO(245, 245, 245, 1),
@@ -53,6 +47,8 @@ class _MyItems extends State<MyItems> {
         
         ],
       ),
+
+    
       body:  Stack(children: <Widget>[
                   bg_shape3(),Column(
         children: [
@@ -129,8 +125,7 @@ class _MyItems extends State<MyItems> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    Product_Description(items[index])),
+                                builder: (context) =>Product_Description(items[index])),
                           );
                         },
                         child: Container(
@@ -172,46 +167,6 @@ class _MyItems extends State<MyItems> {
         ],
       ),]),
     );
-=======
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/sold');
-              },
-              child: Text("Sold Items"),
-            ),
-          ],
-        ),
-        body: ListView.builder(
-            padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
-            //itemCount: items.length,
-            itemBuilder: (BuildContext ctxt, int index) {
-              return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              Product_Description(items[index])),
-                    );
-                  },
-                  child: Card(
-                    child: ListTile(
-                     // title: Text(items[index].title),
-                      subtitle: Text(
-                        items[index].description,
-                      ),
-                      leading: Image.asset(
-                        items[index].image,
-                        fit: BoxFit.cover,
-                        width: 100.0,
-                      ),
-                    ),
-                  ));
-            }));
->>>>>>> Stashed changes
+       
   }
 }
-*/
