@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
@@ -14,6 +17,8 @@ class MyItems extends StatefulWidget {
 }
 
 class _MyItems extends State<MyItems> {
+  List<Object> itemsList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,5 +174,15 @@ class _MyItems extends State<MyItems> {
         ),
       ]),
     );
+  }
+
+  Future getitemsList() async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('Products')
+        .orderBy('created', descending: true)
+        .get();
   }
 }
