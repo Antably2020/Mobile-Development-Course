@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:exchange_app/models/item.dart';
+import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-
+/*
 class SoldItems extends StatefulWidget {
   SoldItems({Key? key, required this.title}) : super(key: key);
 
@@ -31,9 +31,8 @@ class _SoldItemsState extends State<SoldItems> {
                       ),
                       leading: Image.asset(items[index].image),
                     ),
-                  )
-                  );
-            })
-            );
+                  ));
+            }));
   }
 }
+*/

@@ -1,3 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/ProductModel.dart';
+import 'package:exchange_app/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:exchange_app/statefull_widgets/bg_shape.dart';
@@ -8,8 +12,12 @@ class AddProduct extends StatefulWidget {
 }
 
 class _State extends State<AddProduct> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController _TitleController = TextEditingController();
+  TextEditingController _TWController = TextEditingController();
+  TextEditingController _CatController = TextEditingController();
+  TextEditingController _DescController = TextEditingController();
 
+  Product _prod = Product();
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +53,10 @@ class _State extends State<AddProduct> {
                         )),
                   )
                 ]),
-             
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                   child: TextField(
-                    controller: nameController,
+                    controller: _TitleController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -59,8 +66,8 @@ class _State extends State<AddProduct> {
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
-                 child: TextField(
-                    controller: nameController,
+                  child: TextField(
+                    controller: _TWController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -68,11 +75,10 @@ class _State extends State<AddProduct> {
                     ),
                   ),
                 ),
-
-                 Container(
+                Container(
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
-                 child: TextField(
-                    controller: nameController,
+                  child: TextField(
+                    controller: _CatController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -80,45 +86,49 @@ class _State extends State<AddProduct> {
                     ),
                   ),
                 ),
-
                 Container(
-                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
                   child: TextFormField(
-                  minLines: 2,
-                  maxLines: 5,
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    hintText: 'Description',
-                    hintStyle: TextStyle(
-                      color: Colors.grey
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    controller: _DescController,
+                    minLines: 2,
+                    maxLines: 5,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      hintText: 'Description',
+                      hintStyle: TextStyle(color: Colors.grey),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                      ),
                     ),
                   ),
                 ),
-                ),
-               
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
                     child: ElevatedButton(
                       child: Text('ADD PRODUCT'),
-                      onPressed: () {
-                        print(nameController.text);
-
-                        Navigator.pushNamed(context, '/items');
-                      },
+                      onPressed: _addprod,
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(12, 242, 180, 1),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
                     )),
-              
               ],
             )));
   }
+
+  void _addprod() async {
+    _prod.title = _TitleController.text;
+    _prod.tradeWith = _TWController.text;
+    _prod.category = _CatController.text;
+    _prod.description = _DescController.text;
+
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(uid)
+        .collection("Products")
+        .add(_prod.toJson());
+  }
 }
-
-
-
