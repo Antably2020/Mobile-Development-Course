@@ -14,11 +14,10 @@ class AddProduct extends StatefulWidget {
 class _State extends State<AddProduct> {
   TextEditingController _TitleController = TextEditingController();
   TextEditingController _TWController = TextEditingController();
-  TextEditingController _CatController = TextEditingController();
   TextEditingController _DescController = TextEditingController();
 
   Product _prod = Product();
-
+  String _CatController = 'Vehicles';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,13 +76,35 @@ class _State extends State<AddProduct> {
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 0, 50, 20),
-                  child: TextField(
-                    controller: _CatController,
+                  child: DropdownButtonFormField<String>(
+                    value: _CatController,
+                    icon: const Icon(Icons.arrow_downward),
+                    elevation: 16,
+                    style: const TextStyle(color: const Color.fromARGB(255, 12, 242, 180)),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
                       labelText: 'Category',
                     ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _CatController = newValue!;
+                      });
+                    },
+                    items: <String>[
+                      'Vehicles',
+                      'Electronics',
+                      'Furnuture',
+                      'Books',
+                      'Other'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value,
+                            style:
+                                TextStyle(inherit: false, color: const Color.fromARGB(255, 12, 242, 180))),
+                      );
+                    }).toList(),
                   ),
                 ),
                 Container(
@@ -120,7 +141,7 @@ class _State extends State<AddProduct> {
   void _addprod() async {
     _prod.title = _TitleController.text;
     _prod.tradeWith = _TWController.text;
-    _prod.category = _CatController.text;
+    _prod.category = _CatController;
     _prod.description = _DescController.text;
     _prod.created = DateTime.now();
 
@@ -134,7 +155,7 @@ class _State extends State<AddProduct> {
 
     _TitleController.text = '';
     _TWController.text = '';
-    _CatController.text = '';
+    _CatController = '';
     _DescController.text = '';
   }
 }
