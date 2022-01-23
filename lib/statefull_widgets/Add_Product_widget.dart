@@ -155,6 +155,9 @@ class _State extends State<AddProduct> {
         .doc(uid)
         .collection("Products")
         .add(_prod.toJson());
+    await FirebaseFirestore.instance
+        .collection('All Products')
+        .add(_prod.toJson());
 
     _TitleController.text = '';
     _TWController.text = '';

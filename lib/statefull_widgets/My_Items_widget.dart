@@ -20,7 +20,7 @@ class MyItems extends StatefulWidget {
 
 class _MyItems extends State<MyItems> {
   List<Object> _itemsList = [];
-  Product _productt = Product();
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();

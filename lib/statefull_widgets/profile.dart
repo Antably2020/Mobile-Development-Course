@@ -63,14 +63,13 @@ class _MyHomePageState extends State<profile> {
                   ),
                 ),
                 Row(),
-                
                 Container(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: TextField(
                     decoration: new InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.account_circle_outlined ,
+                        Icons.account_circle_outlined,
                         color: const Color.fromARGB(255, 12, 242, 180),
                       ),
                       labelText: "mahmoud zoair",
@@ -84,7 +83,7 @@ class _MyHomePageState extends State<profile> {
                     decoration: new InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.date_range_outlined ,
+                        Icons.date_range_outlined,
                         color: const Color.fromARGB(255, 12, 242, 180),
                       ),
                       labelText: "28/2/2000",
@@ -98,7 +97,7 @@ class _MyHomePageState extends State<profile> {
                     decoration: new InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.phone_iphone ,
+                        Icons.phone_iphone,
                         color: const Color.fromARGB(255, 12, 242, 180),
                       ),
                       labelText: "+20 1144494566",
@@ -126,7 +125,7 @@ class _MyHomePageState extends State<profile> {
                     decoration: new InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.remove_red_eye_outlined ,
+                        Icons.remove_red_eye_outlined,
                         color: const Color.fromARGB(255, 12, 242, 180),
                       ),
                       labelText: "Password",
@@ -134,20 +133,19 @@ class _MyHomePageState extends State<profile> {
                   ),
                 ),
                 Container(child: Divider(color: Colors.black)),
-
                 Container(
-                      height: 50,
-                      padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
-                      child: ElevatedButton(
-                        child: Text('Update'),
-                        onPressed: () async{
-                        
-                        },
-                        style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(12, 242, 180, 1),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30))),
-                      )),
+                    height: 50,
+                    padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                    child: ElevatedButton(
+                      child: Text('Update'),
+                      onPressed: () async {
+                        await authService.signout();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(12, 242, 180, 1),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                    )),
               ],
             ),
           ],

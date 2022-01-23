@@ -3,9 +3,9 @@ import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class ProductCard extends StatelessWidget {
+class allProdCard extends StatelessWidget {
   final Product _product;
-  ProductCard(this._product);
+  allProdCard(this._product);
   @override
   Widget build(BuildContext context) {
     return InkWell(
