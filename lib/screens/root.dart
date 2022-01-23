@@ -1,13 +1,9 @@
 import 'package:exchange_app/models/userModel.dart';
-import 'package:exchange_app/screens/Add_Product_screen.dart';
-import 'package:exchange_app/screens/My_ProductsScreen.dart';
 import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/statefull_widgets/offer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'home.dart';
 import 'login.dart';
-import 'my_offer.dart';
 
 class Root extends StatelessWidget {
   const Root({Key? key}) : super(key: key);

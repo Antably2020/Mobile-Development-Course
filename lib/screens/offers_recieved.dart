@@ -1,5 +1,4 @@
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
-import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/offers.dart';
 
@@ -7,14 +6,30 @@ class offers_recieved extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Exechange App'),
-        appBar: AppBar(),
-    ),
-      body: Padding(
-          padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-          child: getOffers(context)),
+      body: Stack(
+        children: <Widget>[
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: new AppBar(
+              iconTheme: IconThemeData(color: Colors.black),
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_rounded),
+              ),
+              titleSpacing: 0,
+              title: new Text(
+                "Offers Recived",
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+            ),
+            body: getOffers(context),
+          ),
+        ],
+      ),
       bottomNavigationBar: nav_bar_widget(),
     );
   }
@@ -56,7 +71,9 @@ class offers_recieved extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                   child: ElevatedButton(
-                    onPressed: () {Navigator.pushNamed(context, '/offer');},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/offer');
+                    },
                     child: Text("Accept"),
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(80, 30), primary: Colors.green),
@@ -65,7 +82,9 @@ class offers_recieved extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                   child: ElevatedButton(
-                    onPressed: () {Navigator.pushNamed(context, '/offer');},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/offer');
+                    },
                     child: Text("Reject"),
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(80, 30), primary: Colors.red),

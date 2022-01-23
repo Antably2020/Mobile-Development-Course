@@ -1,7 +1,6 @@
 import 'package:exchange_app/screens/card_details_screen.dart';
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/root.dart';
-import 'package:exchange_app/screens/show_items_screen.dart';
 import 'package:exchange_app/screens/test.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/statefull_widgets/offer.dart';
@@ -16,9 +15,7 @@ import 'package:exchange_app/screens/Add_Product_screen.dart';
 import 'package:exchange_app/screens/My_ProductsScreen.dart';
 import 'package:exchange_app/screens/login.dart';
 import 'package:exchange_app/screens/signup.dart';
-import 'package:exchange_app/screens/changepassword.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
-import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
 
 void main() async {
@@ -43,16 +40,14 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => Root(),
-          '/categories': (context) => categories(),
           '/items': (context) => My_Products_Screen(),
           '/offers': (context) => my_offer(),
           '/sold': (context) => SoldItemsScreen(),
           '/addproducts': (context) => Add_Product(),
-          '/offersR': (context) => offers_recieved(),
+          '/offersCompare': (context) => Offer_screen(),
           '/login': (context) => login(),
           '/home': (context) => home(),
           '/signup': (context) => signup(),
-          '/changepassword': (context) => changepassword(),
           '/viewProfile': (context) => viewProfile(),
           '/offers_recieved': (context) => offers_recieved(),
           '/offer': (context) => offer(),

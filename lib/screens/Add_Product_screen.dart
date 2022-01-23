@@ -1,6 +1,5 @@
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 import 'package:exchange_app/statefull_widgets/Add_Product_widget.dart';
 
 class Add_Product extends StatelessWidget {
@@ -29,7 +28,7 @@ class Add_Product extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0.0,
             ),
-             extendBodyBehindAppBar: true,
+            extendBodyBehindAppBar: true,
             body: AddProduct(),
           ),
         ],

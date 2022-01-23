@@ -1,7 +1,6 @@
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:exchange_app/statefull_widgets/signuppage.dart';
 import 'package:flutter/material.dart';
-import 'package:exchange_app/stateless_widgets/bar_widget.dart';
 
 class signup extends StatelessWidget {
   const signup({Key? key}) : super(key: key);
@@ -13,8 +12,7 @@ class signup extends StatelessWidget {
         children: <Widget>[
           Scaffold(
             backgroundColor: Colors.transparent,
-          
-             extendBodyBehindAppBar: true,
+            extendBodyBehindAppBar: true,
             body: signuppage(),
           ),
         ],
