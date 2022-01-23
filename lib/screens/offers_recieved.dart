@@ -72,7 +72,7 @@ class offers_recieved extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/Offer_screen');
+                      Navigator.pushNamed(context, '/offersCompare');
                     },
                     child: Text("View Offer"),
                     style: ElevatedButton.styleFrom(

@@ -18,18 +18,18 @@ class _State extends State<loginpage> {
 
   @override
   Widget build(BuildContext context) {
-    final authService=Provider.of<Auth>(context);
-    validator(){
-  if(_formKey.currentState != null && _formKey.currentState!.validate()){
-    print("Validated");
-    
-     authService.login(emailController.text, passwordController.text);
-               Navigator.pushNamed(context, '/');
-  }
-  else{
-    print("Not Validated");
-  }
-}
+    final authService = Provider.of<Auth>(context);
+    validator() {
+      if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+        print("Validated");
+
+        authService.login(emailController.text, passwordController.text);
+        Navigator.pushNamed(context, '/');
+      } else {
+        print("Not Validated");
+      }
+    }
+
     return Scaffold(
         body: Padding(
             padding: EdgeInsets.all(0),
@@ -43,9 +43,9 @@ class _State extends State<loginpage> {
                       child: Container(
                           padding: EdgeInsets.fromLTRB(20, 100, 20, 20),
                           child: Text(
-                            "LOGIN",
+                            "Welcome",
                             style: TextStyle(
-                              fontSize: 35,
+                              fontSize: 30,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -68,9 +68,9 @@ class _State extends State<loginpage> {
                     child: Container(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
                         child: Text(
-                          "WELCOME!",
+                          "LOGIN!",
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 20,
                             color: Colors.black,
                             fontWeight: FontWeight.w300,
                           ),
@@ -99,7 +99,7 @@ class _State extends State<loginpage> {
                       padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
                       child: ElevatedButton(
                         child: Text('Login'),
-                        onPressed: () async{
+                        onPressed: () async {
                           await validator();
                         },
                         style: ElevatedButton.styleFrom(
@@ -136,11 +136,10 @@ class PasswordField extends StatefulWidget {
   const PasswordField({
     this.labelText,
     this.controller,
-    
   });
 
   final String? labelText;
- 
+
   final TextEditingController? controller;
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
