@@ -72,6 +72,8 @@ flutter:
    - assets/tv.jpg
    - assets/car.jpg
    - assets/fan.jpg
+   - assets/trade1.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

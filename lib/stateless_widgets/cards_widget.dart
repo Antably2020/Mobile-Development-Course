@@ -77,7 +77,7 @@ class _CardSquare extends State<CardSquare> {
               child: Container(
                 decoration: BoxDecoration(
                   image: new DecorationImage(
-                    image: ExactAssetImage('assets/egypt.png'),
+                    image: ExactAssetImage('assets/trade1.png'),
                     fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.circular(12),
