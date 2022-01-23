@@ -7,7 +7,6 @@ import 'package:exchange_app/statefull_widgets/offer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'stateless_widgets/categories_widget.dart';
 import 'screens/home.dart';
 import 'screens/my_offer.dart';
 import 'package:exchange_app/screens/Sold_Items_Screen.dart';
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/',
+        initialRoute: '/home',
         routes: {
           '/': (context) => Root(),
           '/items': (context) => My_Products_Screen(),

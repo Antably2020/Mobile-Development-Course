@@ -32,18 +32,18 @@ class _CardSquare extends State<CardSquare> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(0, 70, 0, 0),
+            padding: EdgeInsets.fromLTRB(20, 70, 0, 0),
             child: Row(
               children: [
                 new ElevatedButton(
-                  child: new Text("offers"),
+                  child: new Text("Offers"),
                   onPressed: () {
                     Navigator.pushNamed(context, '/offers');
                   },
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(12, 242, 180, 1),
+                      primary: Color.fromRGBO(12, 242, 180, 1.0),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30))),
+                          borderRadius: BorderRadius.circular(5))),
                 ),
                 new ElevatedButton(
                   child: new Text("My Products"),
@@ -51,20 +51,23 @@ class _CardSquare extends State<CardSquare> {
                     Navigator.pushNamed(context, '/items');
                   },
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(12, 242, 180, 1),
+                      primary: Color.fromRGBO(12, 242, 180, 1.0),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30))),
+                          borderRadius: BorderRadius.circular(5))),
                 ),
-                new ElevatedButton(
-                  child: new Text("Profile"),
+                RawMaterialButton(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   onPressed: () {
                     Navigator.pushNamed(context, '/viewProfile');
                   },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(12, 242, 180, 1),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30))),
-                ),
+                  elevation: 2.0,
+                  fillColor: Colors.tealAccent,
+                  child: Icon(
+                    Icons.person,
+                    size: 20.0,
+                  ),
+                  shape: CircleBorder(),
+                )
               ],
             ),
           ),

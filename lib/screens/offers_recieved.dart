@@ -69,25 +69,14 @@ class offers_recieved extends StatelessWidget {
             ButtonBar(children: [
               Column(children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/offer');
+                      Navigator.pushNamed(context, '/Offer_screen');
                     },
-                    child: Text("Accept"),
+                    child: Text("View Offer"),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(80, 30), primary: Colors.green),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/offer');
-                    },
-                    child: Text("Reject"),
-                    style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(80, 30), primary: Colors.red),
+                        fixedSize: const Size(100, 20), primary: Colors.amber),
                   ),
                 ),
               ]),

@@ -22,7 +22,7 @@ class Offer_screen extends StatelessWidget {
               ),
               titleSpacing: 0,
               title: new Text(
-                "Offer",
+                "Offer Details",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: Colors.transparent,
