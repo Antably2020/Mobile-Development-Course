@@ -1,5 +1,6 @@
 import 'package:exchange_app/models/userModel.dart';
 import 'package:exchange_app/screens/Add_Product_screen.dart';
+import 'package:exchange_app/screens/My_ProductsScreen.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/statefull_widgets/offer.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class Root extends StatelessWidget {
         stream: authService.user,
         builder: (_, AsyncSnapshot<User?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
-            return snapshot.data == null ? login() : Add_Product();
+            return snapshot.data == null ? login() : home();
           } else {
             return Scaffold(
                 body: Center(

@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class Product {
   String? title, description, category, tradeWith;
-  bool? sold;
+  int? sold;
   DateTime? created;
 
-  Product();
+  Product(
+      {this.title,
+      this.description,
+      this.category,
+      this.tradeWith,
+      this.sold,
+      this.created});
 
   Map<String, dynamic> toJson() => {
         'Title': title,
@@ -15,4 +21,11 @@ class Product {
         'created': created,
         'Sold': 0
       };
+
+  Product.fromSnapshot(snapshot)
+      : title = snapshot.data()['Title'],
+        tradeWith = snapshot.data()['Traded With'],
+        description = snapshot.data()['Description'],
+        sold = snapshot.data()['Sold'],
+        created = snapshot.data()['created'].toDate();
 }

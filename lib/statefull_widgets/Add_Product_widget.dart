@@ -80,7 +80,8 @@ class _State extends State<AddProduct> {
                     value: _CatController,
                     icon: const Icon(Icons.arrow_downward),
                     elevation: 16,
-                    style: const TextStyle(color: const Color.fromARGB(255, 12, 242, 180)),
+                    style: const TextStyle(
+                        color: const Color.fromARGB(255, 12, 242, 180)),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -101,8 +102,10 @@ class _State extends State<AddProduct> {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value,
-                            style:
-                                TextStyle(inherit: false, color: const Color.fromARGB(255, 12, 242, 180))),
+                            style: TextStyle(
+                                inherit: false,
+                                color:
+                                    const Color.fromARGB(255, 12, 242, 180))),
                       );
                     }).toList(),
                   ),

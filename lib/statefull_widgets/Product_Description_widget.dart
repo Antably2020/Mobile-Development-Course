@@ -1,10 +1,11 @@
+import 'package:exchange_app/models/ProductModel.dart';
 import 'package:flutter/material.dart';
 
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:exchange_app/models/item.dart';
 
 class Product_Description extends StatefulWidget {
-  final Item myData;
+  final Product myData;
 
   Product_Description(this.myData);
 
@@ -65,8 +66,8 @@ class _Product_DescriptionState extends State<Product_Description> {
                                       decoration: BoxDecoration(
                                         color: const Color(0xffffff),
                                         image: new DecorationImage(
-                                          image: ExactAssetImage(
-                                              widget.myData.image),
+                                          image:
+                                              ExactAssetImage("assets/car.jpg"),
                                           fit: BoxFit.fill,
                                         ),
                                         border: Border.all(
@@ -87,7 +88,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                       width: double.infinity,
                                       height: 200,
                                     ),
-                                  /*  Container(
+                                    /*  Container(
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         shape: BoxShape.circle,
@@ -119,7 +120,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
-                                  child: Text(widget.myData.title,
+                                  child: Text("${widget.myData.title}",
                                       style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -161,7 +162,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                 Container(
                                   padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
                                   child: Text(
-                                    widget.myData.description,
+                                    "${widget.myData.description}",
                                     style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400,
@@ -195,46 +196,46 @@ class _Product_DescriptionState extends State<Product_Description> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                         )),
-                           Container(
-                  padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
-                  child: Center(
-                    child: CircularProfileAvatar(
-                      '',
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: new DecorationImage(
-                            image: ExactAssetImage('assets/egypt.png'),
-                            fit: BoxFit.fill,
+                    Container(
+                      padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+                      child: Center(
+                        child: CircularProfileAvatar(
+                          '',
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: new DecorationImage(
+                                image: ExactAssetImage('assets/egypt.png'),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            width: double.infinity,
+                            height: 200,
                           ),
+                          borderWidth: 3,
+                          elevation: 10,
+                          radius: 35,
                         ),
-                        width: double.infinity,
-                        height: 200,
                       ),
-                      borderWidth: 3,
-                      elevation: 10,
-                      radius: 35,
                     ),
-                  ),
-                ),
-                 Container(
-                   decoration: BoxDecoration(color: Colors.white,),
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Center(
-                    child: Text(
-                      'Mahmoud Zoair',
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Center(
+                        child: Text(
+                          'Mahmoud Zoair',
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-             
                   ],
                 )
               ],
             ),
-
           ],
         ),
       ),

@@ -1,11 +1,14 @@
+import 'package:exchange_app/models/ProductModel.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
+
 class SoldItems extends StatefulWidget {
   SoldItems({Key? key, required this.title}) : super(key: key);
 
   final String title;
+  Product _prod = Product();
 
   @override
   _SoldItemsState createState() => _SoldItemsState();
@@ -15,7 +18,6 @@ class _SoldItemsState extends State<SoldItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Stack(children: <Widget>[
         bg_shape3(),
         Column(
@@ -86,7 +88,8 @@ class _SoldItemsState extends State<SoldItems> {
                 child: ListView.builder(
                     padding:
                         EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
-                   itemCount: items.where((c) => c.sold == true).toList().length,
+                    itemCount:
+                        items.where((c) => c.sold == true).toList().length,
                     itemBuilder: (BuildContext ctxt, int index) {
                       return InkWell(
                           onTap: () {
@@ -94,7 +97,7 @@ class _SoldItemsState extends State<SoldItems> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      Product_Description(items[index])),
+                                      Product_Description(widget._prod)),
                             );
                           },
                           child: Container(
@@ -138,6 +141,7 @@ class _SoldItemsState extends State<SoldItems> {
                     })),
           ],
         ),
-      ]),);
+      ]),
+    );
   }
 }
