@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
           '/changepassword': (context) => changepassword(),
           '/viewProfile': (context) => viewProfile(),
           '/offers_recieved': (context) => offers_recieved(),
-          '/offer': (context) => test(),
+          '/offer': (context) => offer(),
         },
       ),
     );

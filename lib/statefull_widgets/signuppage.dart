@@ -1,7 +1,7 @@
 import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:exchange_app/statefull_widgets/bg_shape.dart';
+import 'package:exchange_app/shapes/bg_shape.dart';
 import 'package:provider/provider.dart';
 
 class signuppage extends StatefulWidget {

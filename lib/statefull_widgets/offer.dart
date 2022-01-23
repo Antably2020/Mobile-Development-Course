@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:exchange_app/statefull_widgets/bg_shape2.dart';
+import 'package:exchange_app/shapes/bg_shape2.dart';
 
 class offer extends StatelessWidget {
   const offer({Key? key}) : super(key: key);
@@ -169,25 +169,7 @@ class offer extends StatelessWidget {
                     ),
                   ),
                 ]),
-                Container(
-                    height: 50,
-                    padding: EdgeInsets.fromLTRB(100, 10, 100, 0),
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                    child: ElevatedButton(
-                      child: Text('CHAT',
-                          style: TextStyle(
-                            color: Colors.black,
-                          )),
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, '/'); // Nehot route el home page
-                      },
-                      style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(255, 255, 255, 1),
-                          side: BorderSide(width: 2.0, color: Colors.black),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                    )),
+               
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
@@ -204,7 +186,7 @@ class offer extends StatelessWidget {
                     )),
                 Container(
                     height: 50,
-                    padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                    padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
                     child: ElevatedButton(
                       child: Text('REJECT'),
                       onPressed: () {

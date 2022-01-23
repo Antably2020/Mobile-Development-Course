@@ -1,5 +1,5 @@
 import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/statefull_widgets/bg_shape_profile.dart';
+import 'package:exchange_app/shapes/bg_shape_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
