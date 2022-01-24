@@ -64,14 +64,14 @@ class _nav_bar_widget extends State<nav_bar_widget> {
                       ),
                       IconButton(
                           icon: Icon(
-                            Icons.my_library_books_outlined,
+                            Icons.person,
                             color: currentIndex == 1
                                 ? const Color.fromARGB(255, 12, 242, 180)
                                 : Colors.grey.shade400,
                           ),
                           onPressed: () {
                             setBottomBarIndex(1);
-                            Navigator.pushNamed(context, '/offers');
+                            Navigator.pushNamed(context, '/profile');
                           }),
                       Container(
                         width: size.width * 0.20,

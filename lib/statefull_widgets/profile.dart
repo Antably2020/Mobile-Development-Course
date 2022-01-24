@@ -145,7 +145,7 @@ class _MyHomePageState extends State<profile> {
                           primary: Color.fromRGBO(12, 242, 180, 1),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
-                    )),
+                    )),  Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
               ],
             ),
           ],

@@ -161,7 +161,7 @@ class _State extends State<signuppage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                     )),
                     
-                      Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
+                    
                   ],
                 ))));
   }

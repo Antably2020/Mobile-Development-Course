@@ -1,4 +1,4 @@
-import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
+
 import 'package:exchange_app/statefull_widgets/signuppage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class signup extends StatelessWidget {
             backgroundColor: Colors.transparent,
             extendBodyBehindAppBar: true,
             body: signuppage(),
-          ),nav_bar_widget(),
+          ),
         ],
       ),
      

@@ -91,7 +91,7 @@ class _CardSquare extends State<CardSquare> {
                   ],
                 ),
                 width: double.infinity,
-                height: 200,
+                height: 150,
               ),
             ),
           ),
@@ -102,7 +102,7 @@ class _CardSquare extends State<CardSquare> {
                   itemCount: _itemsList.length,
                   itemBuilder: (BuildContext ctxt, int index) {
                     return allProdCard(_itemsList[index] as Product);
-                  })),
+                  })), Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
         ],
       ),
     );
