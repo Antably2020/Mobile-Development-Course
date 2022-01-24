@@ -1,6 +1,8 @@
 
 import 'package:exchange_app/models/userModel.dart';
+import 'package:exchange_app/services/fire_store_services.dart';
 import "package:firebase_auth/firebase_auth.dart" as au;
+
 
 class Auth {
 final au.FirebaseAuth _auth = au.FirebaseAuth.instance;
@@ -28,10 +30,12 @@ return _userFromFirebase(credential.user);
     
   }
 }
-Future<User?> signup(String email, String password) async
+Future<User?> signup(String email, String password,String name, String phone) async
 {
   try{
 final credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+au.User? u = credential.user;
+await firestore_database(u?.uid).createUserData(name, phone);
 return _userFromFirebase(credential.user);
  }
   catch(e)
@@ -45,7 +49,9 @@ return _userFromFirebase(credential.user);
 Future<void> signout() async
 {
   try{
+    
 return await _auth.signOut();
+
  }
   catch(e)
   {

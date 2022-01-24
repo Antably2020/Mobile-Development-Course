@@ -15,13 +15,15 @@ class _State extends State<signuppage> {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<Auth>(context);
+      final name_controller = TextEditingController();
+    final phone_controller = TextEditingController();
     final emailController = TextEditingController();
     final confirmPasswordController = TextEditingController();
     final passwordController = TextEditingController();
     validator() {
       if (_formKey.currentState != null && _formKey.currentState!.validate()) {
         print("Validated");
-        authService.signup(emailController.text, passwordController.text);
+        authService.signup(emailController.text, passwordController.text,name_controller.text,phone_controller.text);
         Navigator.pushNamed(context, '/');
       } else {
         print("Not Validated");
@@ -92,9 +94,9 @@ class _State extends State<signuppage> {
                     Container(
                       padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                       child: TextFormField(
-                        controller: emailController,
+                        controller: name_controller,
                         validator:
-                            ValidationBuilder().email().required().build(),
+                            ValidationBuilder().required().build(),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30.0)),
@@ -106,7 +108,7 @@ class _State extends State<signuppage> {
                      Container(
                       padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
                       child: TextFormField(
-                        controller: emailController,
+                        controller: phone_controller,
                         validator:
                             ValidationBuilder().phone().required().build(),
                         decoration: InputDecoration(

@@ -69,7 +69,7 @@ class _CardSquare extends State<CardSquare> {
                 sliver: SliverGrid.count(
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
                   children: <Widget>[
                     Container(
                       child: InkWell(
@@ -225,6 +225,7 @@ class _CardSquare extends State<CardSquare> {
 
   Future getitemsList() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
+    
     var data =
         await FirebaseFirestore.instance.collection('All Products').get();
     setState(() {

@@ -23,6 +23,7 @@ class home extends StatelessWidget {
                 "Home",
                 style: TextStyle(color: Colors.black),
               ),
+              
               backgroundColor: Colors.transparent,
               elevation: 0.0,
             ),

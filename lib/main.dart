@@ -15,7 +15,6 @@ import 'package:exchange_app/screens/signup.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
 import 'package:exchange_app/screens/My_Offers_screen.dart';
-import 'package:exchange_app/screens/viewProfile.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -35,7 +34,6 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        
         initialRoute: '/',
         routes: {
           '/': (context) => Root(),
