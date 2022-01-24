@@ -20,6 +20,7 @@ class MyItems extends StatefulWidget {
 
   @override
   _MyItems createState() => _MyItems();
+  
 }
 
 class _MyItems extends State<MyItems> {
@@ -107,7 +108,7 @@ class _MyItems extends State<MyItems> {
                     color: Color.fromARGB(255, 12, 242, 180),
                     onPressed: () {
                       setState(() {
-                        items = items.reversed.toList();
+                        _itemsList = _itemsList.reversed.toList();
                       });
                     },
                   ),
@@ -130,15 +131,14 @@ class _MyItems extends State<MyItems> {
       ]),
     );
   }
-
-  Future getitemsList() async {
+Future getitemsList() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
     var data = await FirebaseFirestore.instance
         .collection('Users')
         .doc(uid)
         .collection('Products')
         //the .where is a condition 3shan ageb el ana 3ayzo mn database
-        //.where('Category', isEqualTo: 'Vehicles')
+        //.where('Category', isEqualTo: 'Other')
         .get();
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
@@ -146,4 +146,5 @@ class _MyItems extends State<MyItems> {
       print(uid);
     });
   }
+  
 }

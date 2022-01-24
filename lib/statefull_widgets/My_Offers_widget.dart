@@ -101,7 +101,7 @@ class _MyOffers extends State<MyOffers> {
                     color: Color.fromARGB(255, 12, 242, 180),
                     onPressed: () {
                       setState(() {
-                        items = items.reversed.toList();
+                        _itemsList = _itemsList.reversed.toList();
                       });
                     },
                   ),
