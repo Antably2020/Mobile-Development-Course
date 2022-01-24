@@ -23,18 +23,7 @@ class My_Offerss_Screen extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-      /*  actions: <Widget>[
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(255, 255, 255, 0),
-              onPrimary: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/sold');
-            },
-            child: Text("Sold Items"),
-          ),
-        ],*/
+   
       ),
       extendBodyBehindAppBar: true,
       body:Stack(children: [ MyOffers(
