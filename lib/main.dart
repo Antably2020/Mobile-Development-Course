@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         
-        initialRoute: '/home',
+        initialRoute: '/',
         routes: {
           '/': (context) => Root(),
           '/items': (context) => My_Products_Screen(),
@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
           '/viewProfile': (context) => viewProfile(),
           '/offers_recieved': (context) => My_Offerss_Screen(),
            '/profile': (context) => viewProfile(),
+           
         },
       ),
     );

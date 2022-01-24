@@ -5,11 +5,19 @@ import 'package:provider/provider.dart';
 import 'home.dart';
 import 'login.dart';
 
+
+
+
 class Root extends StatelessWidget {
   const Root({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+
+
+
+    
     final authService = Provider.of<Auth>(context);
     return StreamBuilder<User?>(
         stream: authService.user,
