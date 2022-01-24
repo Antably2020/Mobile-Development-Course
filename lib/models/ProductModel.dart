@@ -4,6 +4,7 @@ class Product {
   String? title, description, category, tradeWith,id;
   int? sold;
   DateTime? created;
+  String? createdBy;
 
   Product(
       {this.title,
@@ -12,16 +13,24 @@ class Product {
       this.tradeWith,
       this.sold,
       this.created,
+<<<<<<< HEAD
       this.id});
+=======
+      this.createdBy});
+>>>>>>> a20e04e3328c9003d3cbd74780ea0eabb6810c0a
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson(uid) => {
         'Title': title,
         'Traded With': tradeWith,
         'Category': category,
         'Description': description,
         'created': created,
         'Sold': 0,
+<<<<<<< HEAD
         'id' : id
+=======
+        'Created By': uid
+>>>>>>> a20e04e3328c9003d3cbd74780ea0eabb6810c0a
       };
 
   Product.fromSnapshot(snapshot)

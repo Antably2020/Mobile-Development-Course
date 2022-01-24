@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 
 
 import 'package:exchange_app/models/profileModel.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/services/fire_store_services.dart';
+=======
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/profileModel.dart';
+import 'package:exchange_app/services/auth.dart';
+import 'package:exchange_app/shapes/bg_shape_profile.dart';
+>>>>>>> a20e04e3328c9003d3cbd74780ea0eabb6810c0a
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +26,17 @@ class profile extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<profile> {
+  Profile _prof = Profile();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getProfile();
+  }
+
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<Auth>(context);
+<<<<<<< HEAD
     //final firestoreService = Provider.of<firestore_database>(context);
     final uid = FirebaseAuth.instance.currentUser!.uid;
     
@@ -139,6 +154,39 @@ class _MyHomePageState extends State<profile> {
                                 labelText: "Password",
                               ),
                             ),
+=======
+
+    return new Scaffold(
+        body: ListView(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            bg_shape_profile(),
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  child: Center(
+                    child: Text(
+                      "${_prof.Name}",
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28.0),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+                  child: Center(
+                    child: CircularProfileAvatar(
+                      '',
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: new DecorationImage(
+                            image: ExactAssetImage('assets/egypt.png'),
+                            fit: BoxFit.fill,
+>>>>>>> a20e04e3328c9003d3cbd74780ea0eabb6810c0a
                           ),
                           Container(child: Divider(color: Colors.black)),
               
@@ -169,6 +217,21 @@ class _MyHomePageState extends State<profile> {
   
   
   
+  }
+
+  Future getProfile() async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    var data = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(uid)
+        .collection('Profile')
+        .snapshots();
+    setState(() {
+      _prof = Profile.fromSnapshot(data);
+
+      print(uid);
+      print(_prof.Name);
+    });
   }
 }
 
