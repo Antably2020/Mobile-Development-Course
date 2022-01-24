@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 class profile_model{
   final String Name;
@@ -20,17 +19,3 @@ class profile_model{
 
   );
 }
-=======
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-class Profile {
-  String? Name;
-  int? phone;
-
-  Profile({this.Name, this.phone});
-
-  Profile.fromSnapshot(snapshot)
-      : Name = snapshot['name'],
-        phone = snapshot['phone'];
-}
->>>>>>> a20e04e3328c9003d3cbd74780ea0eabb6810c0a
