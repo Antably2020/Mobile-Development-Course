@@ -4,11 +4,14 @@ import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/productCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/models/item.dart';
+
+import 'nav_bar_widget.dart';
 
 class MyItems extends StatefulWidget {
   MyItems({Key? key, required this.title}) : super(key: key);
@@ -31,13 +34,30 @@ class _MyItems extends State<MyItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_rounded),
+        ),
+        titleSpacing: 0,
+        title: new Text(
+          "Shop",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+    
+      ),
 
       body: Stack(children: <Widget>[
         bg_shape3(),
         Column(
           children: [
             Container(
-                margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: ListTile(
                 leading: Icon(
                   Icons.search,
@@ -119,8 +139,9 @@ class _MyItems extends State<MyItems> {
                     })),
                     
                     Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
+                  
           ],
-        ),
+        ),   nav_bar_widget(),
       ]),
     );
   }
@@ -131,6 +152,8 @@ class _MyItems extends State<MyItems> {
         .collection('Users')
         .doc(uid)
         .collection('Products')
+        //the .where is a condition 3shan ageb el ana 3ayzo mn database
+        //.where('Category', isEqualTo: 'Vehicles')
         .get();
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));

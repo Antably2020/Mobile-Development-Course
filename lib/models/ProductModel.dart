@@ -25,6 +25,7 @@ class Product {
   Product.fromSnapshot(snapshot)
       : title = snapshot.data()['Title'],
         tradeWith = snapshot.data()['Traded With'],
+        category = snapshot.data()['Category'],
         description = snapshot.data()['Description'],
         sold = snapshot.data()['Sold'],
         created = snapshot.data()['created'].toDate();

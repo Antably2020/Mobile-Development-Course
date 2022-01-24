@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/models/offers.dart';
+import 'package:exchange_app/statefull_widgets/My_Items_widget.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/stateless_widgets/allProdCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,44 +33,8 @@ class _CardSquare extends State<CardSquare> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(20, 70, 0, 0),
-            child: Row(
-              children: [
-                new ElevatedButton(
-                  child: new Text("Offers"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/offers');
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(12, 242, 180, 1.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5))),
-                ),
-                new ElevatedButton(
-                  child: new Text("My Products"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/items');
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(12, 242, 180, 1.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5))),
-                ),
-                RawMaterialButton(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/viewProfile');
-                  },
-                  elevation: 2.0,
-                  fillColor: Colors.tealAccent,
-                  child: Icon(
-                    Icons.person,
-                    size: 20.0,
-                  ),
-                  shape: CircleBorder(),
-                )
-              ],
-            ),
+            padding: EdgeInsets.fromLTRB(10, 80, 0, 0),
+            
           ),
           Container(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -96,13 +61,163 @@ class _CardSquare extends State<CardSquare> {
             ),
           ),
           Expanded(
+              child: CustomScrollView(
+            primary: false,
+            slivers: <Widget>[
+              SliverPadding(
+                padding: const EdgeInsets.all(10),
+                sliver: SliverGrid.count(
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 3,
+                  children: <Widget>[
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyItems(title: 'Vehicles')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Vehicle'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyItems(title: 'Electronics')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Electronics'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyItems(title: 'Electronics')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Furnuture'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MyItems(title: 'Books')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Books'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MyItems(title: 'Fashion')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Fashion'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MyItems(title: 'Other')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.motorcycle,
+                              color: Colors.white,
+                              size: 50.0,
+                            ),
+                            Text('Other'),
+                          ],
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      color: const Color.fromARGB(255, 12, 242, 180),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 90, 0, 0),
+          ),
+
+          /*
+          Expanded(
               child: ListView.builder(
                   padding:
                       EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
                   itemCount: _itemsList.length,
                   itemBuilder: (BuildContext ctxt, int index) {
                     return allProdCard(_itemsList[index] as Product);
-                  })), Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
+                  })), Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),*/
         ],
       ),
     );
