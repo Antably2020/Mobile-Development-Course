@@ -31,9 +31,9 @@ class Add_Product extends StatelessWidget {
             extendBodyBehindAppBar: true,
             body: AddProduct(),
           ),
+          nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
     );
   }
 }

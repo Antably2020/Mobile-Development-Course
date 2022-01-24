@@ -1,3 +1,4 @@
+import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/offer.dart';
@@ -28,11 +29,11 @@ class Offer_screen extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0.0,
             ),
-            body: offer(),
-          ),
+         
+          ),nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
+     
     );
   }
 }

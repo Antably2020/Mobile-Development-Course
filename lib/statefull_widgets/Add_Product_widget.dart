@@ -137,6 +137,7 @@ class _State extends State<AddProduct> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
                     )),
+                      Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
               ],
             )));
   }

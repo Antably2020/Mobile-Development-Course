@@ -29,10 +29,14 @@ class viewProfile extends StatelessWidget {
               elevation: 0.0,
             ),
             extendBodyBehindAppBar: true,
-            body: profile(
-              title: 'My Profile',
+            body: Stack(
+              children: [
+                profile(
+                  title: 'My Profile',
+                ),nav_bar_widget(),
+              ],
             ),
-            bottomNavigationBar: nav_bar_widget(),
+         
           ),
         ],
       ),

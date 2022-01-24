@@ -1,5 +1,6 @@
 import 'package:exchange_app/statefull_widgets/Sold_Items_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 
 class SoldItemsScreen extends StatelessWidget {
   const SoldItemsScreen({Key? key}) : super(key: key);
@@ -23,9 +24,13 @@ class SoldItemsScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: SoldItems(
+      body:Stack(children: [
+         SoldItems(
         title: 'My Sold Items',
       ),
+        nav_bar_widget(),],) 
+      
+     
     );
   }
 }

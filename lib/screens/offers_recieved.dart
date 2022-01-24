@@ -27,10 +27,10 @@ class offers_recieved extends StatelessWidget {
               elevation: 0.0,
             ),
             body: getOffers(context),
-          ),
+          ),nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
+    
     );
   }
 

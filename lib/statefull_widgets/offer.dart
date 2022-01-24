@@ -1,19 +1,49 @@
 import 'package:flutter/material.dart';
-
+import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/shapes/bg_shape2.dart';
+import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
+import 'nav_bar_widget.dart';
 
-class offer extends StatelessWidget {
-  const offer({Key? key}) : super(key: key);
+class offer extends StatefulWidget {
+  final Product myData;
 
+  offer(this.myData);
+
+  @override
+  _offer createState() => _offer();
+}
+
+class _offer extends State<offer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
+             appBar: new AppBar(
+              iconTheme: IconThemeData(color: Colors.black),
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_rounded),
+              ),
+              titleSpacing: 0,
+              title: new Text(
+                "Offer Details",
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+            ),
+            extendBodyBehindAppBar: true,
+        body:Stack(children: [
+        Padding(
             padding: EdgeInsets.all(0),
             child: ListView(
               children: <Widget>[
                 Stack(children: <Widget>[
-                  bg_shape2(),
+                  Container(
+                   // padding: EdgeInsets.fromLTRB(0, 300, 0, 0),
+                    child:  bg_shape2(),),
+                 
                   Center(
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(20, 60, 20, 20),
@@ -29,7 +59,7 @@ class offer extends StatelessWidget {
                             Container(
                               margin: const EdgeInsets.all(15.0),
                               padding: const EdgeInsets.all(3.0),
-                              child: Text('Product name',
+                              child: Text("${widget.myData.title}",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 25,
@@ -114,7 +144,7 @@ class offer extends StatelessWidget {
                             Container(
                               margin: const EdgeInsets.all(15.0),
                               padding: const EdgeInsets.all(3.0),
-                              child: Text('Product name',
+                              child: Text("${widget.myData.title}",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 25,
@@ -161,7 +191,7 @@ class offer extends StatelessWidget {
                               ],
                             ),
                             Container(
-                              child: Text('By: ahmed'),
+                              child: Text('By: You'),
                             )
                           ],
                         ),
@@ -169,7 +199,6 @@ class offer extends StatelessWidget {
                     ),
                   ),
                 ]),
-               
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
@@ -197,8 +226,12 @@ class offer extends StatelessWidget {
                           primary: Color.fromRGBO(255, 0, 0, 1),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
-                    )),
+                    )),Container(
+                          margin: EdgeInsets.only(bottom: 100),
+                        ),
               ],
-            )));
+            )), 
+            nav_bar_widget(),],), 
+            );
   }
 }

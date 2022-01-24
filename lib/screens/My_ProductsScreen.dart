@@ -8,11 +8,33 @@ class My_Products_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: MyItems(
-        title: 'My Items',
+            appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_rounded),
+        ),
+        titleSpacing: 0,
+        title: new Text(
+          "Shop",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+    
       ),
-      bottomNavigationBar: nav_bar_widget(),
+      extendBodyBehindAppBar: true,
+      body: Stack(
+        children: [
+          MyItems(
+            title: 'My Items',
+          ),
+          nav_bar_widget(),
+        ],
+      ),
+      
     );
   }
 }

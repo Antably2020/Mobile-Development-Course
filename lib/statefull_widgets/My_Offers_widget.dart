@@ -1,24 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
-import 'package:exchange_app/stateless_widgets/productCard.dart';
+import 'package:exchange_app/stateless_widgets/offer_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
+import 'package:exchange_app/statefull_widgets/offer.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/models/item.dart';
 
-class MyItems extends StatefulWidget {
-  MyItems({Key? key, required this.title}) : super(key: key);
+class MyOffers extends StatefulWidget {
+  MyOffers({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyItems createState() => _MyItems();
+  _MyOffers createState() => _MyOffers();
 }
 
-class _MyItems extends State<MyItems> {
+class _MyOffers extends State<MyOffers> {
   List<Object> _itemsList = [];
 
   @override
@@ -30,13 +30,13 @@ class _MyItems extends State<MyItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+     
       body: Stack(children: <Widget>[
         bg_shape3(),
         Column(
           children: [
             Container(
-                margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
               child: ListTile(
                 leading: Icon(
                   Icons.search,
@@ -74,7 +74,7 @@ class _MyItems extends State<MyItems> {
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(20, 10, 50, 10),
-                      child: Text('Showing All Products',
+                      child: Text('Showing All Offers',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
@@ -82,10 +82,10 @@ class _MyItems extends State<MyItems> {
                           )),
                     ),
                   ],
-                ),
-                 ElevatedButton(
+                  
+                ), ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(250, 250, 250, 1),
+              primary: Color.fromRGBO(255, 255, 255, 1),
               onPrimary: Colors.black,
             ),
             onPressed: () {
@@ -114,10 +114,9 @@ class _MyItems extends State<MyItems> {
                         EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
                     itemCount: _itemsList.length,
                     itemBuilder: (BuildContext ctxt, int index) {
-                      return ProductCard(_itemsList[index] as Product);
+                      return offerCard(_itemsList[index] as Product);
                     })),
-                    
-                    Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
+                      Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
           ],
         ),
       ]),

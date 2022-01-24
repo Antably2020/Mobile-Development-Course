@@ -14,9 +14,10 @@ class login extends StatelessWidget {
             backgroundColor: Colors.transparent,
             body: loginpage(),
           ),
+          nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
+     
     );
   }
 }

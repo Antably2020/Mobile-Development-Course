@@ -29,9 +29,9 @@ class home extends StatelessWidget {
             extendBodyBehindAppBar: true,
             body: CardSquare(),
           ),
+          nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
     );
   }
 }

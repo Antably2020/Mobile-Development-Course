@@ -1,4 +1,4 @@
-import 'package:exchange_app/screens/card_details_screen.dart';
+
 import 'package:exchange_app/screens/offers_recieved.dart';
 import 'package:exchange_app/screens/root.dart';
 import 'package:exchange_app/screens/test.dart';
@@ -16,6 +16,7 @@ import 'package:exchange_app/screens/login.dart';
 import 'package:exchange_app/screens/signup.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
+import 'package:exchange_app/screens/My_Offers_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/home',
+        
+        initialRoute: '/login',
         routes: {
           '/': (context) => Root(),
           '/items': (context) => My_Products_Screen(),
@@ -48,8 +50,8 @@ class MyApp extends StatelessWidget {
           '/home': (context) => home(),
           '/signup': (context) => signup(),
           '/viewProfile': (context) => viewProfile(),
-          '/offers_recieved': (context) => offers_recieved(),
-          '/offer': (context) => offer(),
+          '/offers_recieved': (context) => My_Offerss_Screen(),
+        //  '/offer': (context) => offer(),
         },
       ),
     );

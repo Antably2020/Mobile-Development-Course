@@ -14,10 +14,10 @@ class signup extends StatelessWidget {
             backgroundColor: Colors.transparent,
             extendBodyBehindAppBar: true,
             body: signuppage(),
-          ),
+          ),nav_bar_widget(),
         ],
       ),
-      bottomNavigationBar: nav_bar_widget(),
+     
     );
   }
 }

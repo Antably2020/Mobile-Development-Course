@@ -125,7 +125,10 @@ class _State extends State<loginpage> {
                       )
                     ],
                     mainAxisAlignment: MainAxisAlignment.center,
-                  ))
+                  )),
+                  
+                      Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
+                  
                 ],
               ),
             )));
