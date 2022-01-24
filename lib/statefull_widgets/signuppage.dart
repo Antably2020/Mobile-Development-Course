@@ -98,6 +98,34 @@ class _State extends State<signuppage> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30.0)),
+                          labelText: 'name',
+                        ),
+                      ),
+                    ),
+
+                     Container(
+                      padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
+                      child: TextFormField(
+                        controller: emailController,
+                        validator:
+                            ValidationBuilder().phone().required().build(),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          labelText: 'Phone',
+                        ),
+                      ),
+                    ),
+
+                     Container(
+                      padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
+                      child: TextFormField(
+                        controller: emailController,
+                        validator:
+                            ValidationBuilder().email().required().build(),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
                           labelText: 'Email',
                         ),
                       ),
