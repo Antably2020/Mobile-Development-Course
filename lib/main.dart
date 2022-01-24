@@ -1,12 +1,10 @@
 
 import 'package:exchange_app/screens/root.dart';
 import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/statefull_widgets/profile.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/home.dart';
-
 import 'package:exchange_app/screens/Sold_Items_Screen.dart';
 import 'package:exchange_app/screens/Add_Product_screen.dart';
 import 'package:exchange_app/screens/My_ProductsScreen.dart';

@@ -152,14 +152,10 @@ class _State extends State<AddProduct> {
 
     String uid = FirebaseAuth.instance.currentUser!.uid;
 
-    await FirebaseFirestore.instance
-        .collection('Users')
-        .doc(uid)
-        .collection("Products")
-        .add(_prod.toJson(uid));
-    await FirebaseFirestore.instance
-        .collection('All Products')
-        .add(_prod.toJson(uid));
+    final docc = await FirebaseFirestore.instance
+        .collection('All Products').doc();
+        
+        docc.set(_prod.toJson(uid,docc.id));
 
     _TitleController.text = '';
     _TWController.text = '';

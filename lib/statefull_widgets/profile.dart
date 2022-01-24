@@ -1,5 +1,3 @@
-
-
 import 'package:exchange_app/models/profileModel.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/services/fire_store_services.dart';
@@ -7,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+
 
 
 class profile extends StatefulWidget {
