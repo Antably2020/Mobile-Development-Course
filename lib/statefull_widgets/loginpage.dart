@@ -32,11 +32,26 @@ class _State extends State<loginpage> {
 
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.all(0),
+            padding: EdgeInsets.all(0.0),
             child: Form(
               key: _formKey,
               child: ListView(
                 children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    child: Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: new DecorationImage(
+                            image: ExactAssetImage('assets/trade2.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        width: 180,
+                        height: 125,
+                      ),
+                    ),
+                  ),
                   Stack(children: <Widget>[
                     bg_shape(),
                     Center(
