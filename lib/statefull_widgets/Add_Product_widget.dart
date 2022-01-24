@@ -156,7 +156,7 @@ class _State extends State<AddProduct> {
         .collection('All Products').doc();
         
         docc.set(_prod.toJson(uid,docc.id));
-
+ 
     _TitleController.text = '';
     _TWController.text = '';
     _CatController = '';
