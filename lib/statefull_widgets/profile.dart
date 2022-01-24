@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/profileModel.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/shapes/bg_shape_profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
@@ -17,6 +20,13 @@ class profile extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<profile> {
+  Profile _prof = Profile();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getProfile();
+  }
+
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<Auth>(context);
@@ -33,7 +43,7 @@ class _MyHomePageState extends State<profile> {
                   padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                   child: Center(
                     child: Text(
-                      'Mahmoud Zoair',
+                      "${_prof.Name}",
                       style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -153,5 +163,20 @@ class _MyHomePageState extends State<profile> {
         SizedBox(height: 20.0),
       ],
     ));
+  }
+
+  Future getProfile() async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    var data = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(uid)
+        .collection('Profile')
+        .snapshots();
+    setState(() {
+      _prof = Profile.fromSnapshot(data);
+
+      print(uid);
+      print(_prof.Name);
+    });
   }
 }

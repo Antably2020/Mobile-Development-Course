@@ -14,7 +14,7 @@ class CardSquare extends StatefulWidget {
   CardSquare({
     Key? key,
   }) : super(key: key);
-  Product _prod = Product();
+
   @override
   _CardSquare createState() => _CardSquare();
 }
