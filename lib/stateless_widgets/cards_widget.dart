@@ -257,11 +257,9 @@ class _CardSquare extends State<CardSquare> {
                     ),
                     Container(
                       child: InkWell(
-                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => AllItems(
-                                    title: 'Other',
-                                  )));
+                        onTap: () {
+                          authService.signout();
+                          Navigator.pushNamed(context, '/login');
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,

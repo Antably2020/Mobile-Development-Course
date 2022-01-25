@@ -4,17 +4,17 @@ class Product {
   String? title, description, category, tradeWith, product_id, user_id;
   int? sold;
   DateTime? created;
-  String? createdBy;
 
-  Product(
-      {this.title,
-      this.description,
-      this.category,
-      this.tradeWith,
-      this.sold,
-      this.created,
-      this.product_id,
-      this.user_id});
+  Product({
+    this.title,
+    this.description,
+    this.category,
+    this.tradeWith,
+    this.sold,
+    this.created,
+    this.product_id,
+    this.user_id,
+  });
 
   Map<String, dynamic> toJson(uid, product_id) => {
         'Title': title,
@@ -36,4 +36,16 @@ class Product {
         product_id = snapshot.data()['Product_id'],
         user_id = snapshot.data()['User_id'],
         created = snapshot.data()['created'].toDate();
+
+/*static Product fromJson(Map<String, dynamic> json) => Product(
+    json['Title'],
+    json['Category'],
+    json['Description'],
+    json['Traded With'],
+    json['Sold'],
+    json['Product_id'],
+    json['User_id'],
+    json['created'].toDate(),
+  );
+  */
 }

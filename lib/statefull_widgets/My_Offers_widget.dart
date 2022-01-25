@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/OffersModel.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/offer_card.dart';
@@ -20,6 +21,7 @@ class MyOffers extends StatefulWidget {
 
 class _MyOffers extends State<MyOffers> {
   List<Object> _itemsList = [];
+  List<Offer> _OfferList = [];
 
   @override
   void didChangeDependencies() {
@@ -30,7 +32,6 @@ class _MyOffers extends State<MyOffers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: Stack(children: <Widget>[
         bg_shape3(),
         Column(
@@ -82,17 +83,17 @@ class _MyOffers extends State<MyOffers> {
                           )),
                     ),
                   ],
-                  
-                ), ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(255, 255, 255, 1),
-              onPrimary: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/sold');
-            },
-            child: Text("Sold Items"),
-          ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(255, 255, 255, 1),
+                    onPrimary: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sold');
+                  },
+                  child: Text("Sold Items"),
+                ),
                 Container(
                   height: 40,
                   margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -116,7 +117,9 @@ class _MyOffers extends State<MyOffers> {
                     itemBuilder: (BuildContext ctxt, int index) {
                       return offerCard(_itemsList[index] as Product);
                     })),
-                      Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 90, 0, 0),
+            ),
           ],
         ),
       ]),
@@ -129,10 +132,29 @@ class _MyOffers extends State<MyOffers> {
         .collection('Offers')
         .where('Product Creator', isEqualTo: uid)
         .get();
+
     setState(() {
-      _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
-      print(_itemsList.length);
+      _OfferList = List.from(data.docs.map((doc) => Offer.fromSnapshot(doc)));
+      getProds();
+      print(_OfferList.length);
       print(uid);
     });
+  }
+
+  void getProds() async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    for (var i = 0; i < _OfferList.length; i++) {
+      var data = await FirebaseFirestore.instance
+          .collection('All Products')
+          .where('Product_id', isEqualTo: _OfferList[i].ProductIDOriginal)
+          .get();
+
+      setState(() {
+        _itemsList =
+            List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
+        print(_itemsList.length);
+        print(uid);
+      });
+    }
   }
 }
