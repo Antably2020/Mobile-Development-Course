@@ -36,130 +36,134 @@ class _MyHomePageState extends State<profile> {
         }
         else{
           final d = snapshot.data!;
-        return  Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Center(
-                              child: Text(
-                                d.Name,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 28.0),
+        return  ListView(
+          children:[ Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                              child: Center(
+                                child: Text(
+                                  d.Name,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 28.0),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
-                            child: Center(
-                              child: CircularProfileAvatar(
-                                '',
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: new DecorationImage(
-                                      image: ExactAssetImage('assets/egypt.png'),
-                                      fit: BoxFit.fill,
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+                              child: Center(
+                                child: CircularProfileAvatar(
+                                  '',
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      image: new DecorationImage(
+                                        image: ExactAssetImage('assets/egypt.png'),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
+                                    width: double.infinity,
+                                    height: 200,
                                   ),
-                                  width: double.infinity,
-                                  height: 200,
+                                  borderWidth: 3,
+                                  elevation: 10,
+                                  radius: 55,
                                 ),
-                                borderWidth: 3,
-                                elevation: 10,
-                                radius: 55,
                               ),
                             ),
-                          ),
-                          Row(),
-                          
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.account_circle_outlined ,
-                                  color: const Color.fromARGB(255, 12, 242, 180),
+                            Row(),
+                            
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: TextField(
+                                decoration: new InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.account_circle_outlined ,
+                                    color: const Color.fromARGB(255, 12, 242, 180),
+                                  ),
+                                  labelText: d.Name,
                                 ),
-                                labelText: d.Name,
                               ),
                             ),
-                          ),
-                          Container(child: Divider(color: Colors.black)),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.date_range_outlined ,
-                                  color: const Color.fromARGB(255, 12, 242, 180),
+                            Container(child: Divider(color: Colors.black)),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: TextField(
+                                decoration: new InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.date_range_outlined ,
+                                    color: const Color.fromARGB(255, 12, 242, 180),
+                                  ),
+                                  labelText: "28/2/2000",
                                 ),
-                                labelText: "28/2/2000",
                               ),
                             ),
-                          ),
-                          Container(child: Divider(color: Colors.black)),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.phone_iphone ,
-                                  color: const Color.fromARGB(255, 12, 242, 180),
+                            Container(child: Divider(color: Colors.black)),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: TextField(
+                                decoration: new InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.phone_iphone ,
+                                    color: const Color.fromARGB(255, 12, 242, 180),
+                                  ),
+                                  labelText: d.Phone,
                                 ),
-                                labelText: d.Phone,
                               ),
                             ),
-                          ),
-                          Container(child: Divider(color: Colors.black)),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.mail_outline,
-                                  color: const Color.fromARGB(255, 12, 242, 180),
+                            Container(child: Divider(color: Colors.black)),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: TextField(
+                                decoration: new InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.mail_outline,
+                                    color: const Color.fromARGB(255, 12, 242, 180),
+                                  ),
+                                  labelText: "mahmoudzoair@gmail.com",
                                 ),
-                                labelText: "mahmoudzoair@gmail.com",
                               ),
                             ),
-                          ),
-                          Container(child: Divider(color: Colors.black)),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.remove_red_eye_outlined ,
-                                  color: const Color.fromARGB(255, 12, 242, 180),
+                            Container(child: Divider(color: Colors.black)),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: TextField(
+                                decoration: new InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.remove_red_eye_outlined ,
+                                    color: const Color.fromARGB(255, 12, 242, 180),
+                                  ),
+                                  labelText: "Password",
                                 ),
-                                labelText: "Password",
                               ),
                             ),
-                          ),
-                          Container(child: Divider(color: Colors.black)),
-              
-                          Container(
-                                height: 50,
-                                padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
-                                child: ElevatedButton(
-                                  child: Text('Logout'),
-                                  onPressed: () async{
-                                    await authService.signout();
-                                     Navigator.pushNamed(context, '/');
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                      primary: Color.fromRGBO(12, 242, 180, 1),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30))),
-                                )),
-                        ],
-                      );
+                            Container(child: Divider(color: Colors.black)),
+                
+                            Container(
+                                  height: 50,
+                                  padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                                  child: ElevatedButton(
+                                    child: Text('Logout'),
+                                    onPressed: () async{
+                                      await authService.signout();
+                                       Navigator.pushNamed(context, '/');
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Color.fromRGBO(12, 242, 180, 1),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(30))),
+                                  )),
+                          ],
+                        ),
+                        Container(margin: EdgeInsets.fromLTRB(0, 0, 0, 100),)
+                        ]
+        );
                    
                  
                

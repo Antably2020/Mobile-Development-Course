@@ -1,8 +1,10 @@
 import 'package:exchange_app/models/ProductModel.dart';
+import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:exchange_app/models/item.dart';
+import 'package:provider/provider.dart';
 
 class Product_Description extends StatefulWidget {
   final Product myData;
@@ -17,6 +19,7 @@ class _Product_DescriptionState extends State<Product_Description> {
   double rating = 3.5;
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<Auth>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -196,8 +199,9 @@ class _Product_DescriptionState extends State<Product_Description> {
                             child: ElevatedButton(
                               child: Text('Make Offer'),
                               onPressed: () {
-                                Navigator.pushNamed(
-                                    context, '/'); // Nehot route el home page
+                                 // Nehot route el home page
+                               /*  authService.signout();
+                                 Navigator.pushNamed(context, '/login');*/
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Color.fromARGB(255, 12, 242, 180),
