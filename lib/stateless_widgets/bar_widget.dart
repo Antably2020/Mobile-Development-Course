@@ -21,8 +21,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       backgroundColor: backgroundColor,
       actions: [
-    
-    Ink(
+        Ink(
           decoration: const ShapeDecoration(
             color: Colors.grey,
             shape: CircleBorder(),
@@ -30,10 +29,12 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: IconButton(
             icon: const Icon(Icons.person),
             color: Colors.white,
-            onPressed: () {Navigator.pushNamed(context, '/viewProfile');},
+            onPressed: () {
+              Navigator.pushNamed(context, '/viewProfile');
+            },
           ),
         ),
-  ],
+      ],
     );
   }
 

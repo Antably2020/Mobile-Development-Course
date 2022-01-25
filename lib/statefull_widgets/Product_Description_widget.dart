@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:exchange_app/models/OffersModel.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
@@ -8,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class Product_Description extends StatefulWidget {
   final Product myData;
-
+  Offer newOffer = Offer();
   Product_Description(this.myData);
 
   @override
@@ -198,11 +201,12 @@ class _Product_DescriptionState extends State<Product_Description> {
                             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                             child: ElevatedButton(
                               child: Text('Make Offer'),
-                              onPressed: () {
-                                 // Nehot route el home page
-                               /*  authService.signout();
+
+                              // Nehot route el home page
+                              /*  authService.signout();
                                  Navigator.pushNamed(context, '/login');*/
-                              },
+
+                              onPressed: _addOffer,
                               style: ElevatedButton.styleFrom(
                                   primary: Color.fromARGB(255, 12, 242, 180),
                                   shape: RoundedRectangleBorder(
@@ -260,6 +264,17 @@ class _Product_DescriptionState extends State<Product_Description> {
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _addOffer() async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    widget.newOffer.Creator = widget.myData.user_id;
+    widget.newOffer.ProductID = widget.myData.product_id;
+    widget.newOffer.uidMadeOffer = uid;
+
+    final docc = await FirebaseFirestore.instance.collection('Offers').doc();
+
+    docc.set(widget.newOffer.toJson());
   }
 }
 

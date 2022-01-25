@@ -1,4 +1,3 @@
-
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/productCard.dart';
@@ -20,7 +19,6 @@ class MyItems extends StatefulWidget {
 
   @override
   _MyItems createState() => _MyItems();
-  
 }
 
 class _MyItems extends State<MyItems> {
@@ -35,15 +33,12 @@ class _MyItems extends State<MyItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       body: Stack(children: <Widget>[
-     
         bg_shape3(),
         Column(
           children: [
             Container(
-              
-                margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
               child: ListTile(
                 leading: Icon(
                   Icons.search,
@@ -90,16 +85,16 @@ class _MyItems extends State<MyItems> {
                     ),
                   ],
                 ),
-                 ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(250, 250, 250, 1),
-              onPrimary: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/sold');
-            },
-            child: Text("Sold Items"),
-          ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(250, 250, 250, 1),
+                    onPrimary: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sold');
+                  },
+                  child: Text("Sold Items"),
+                ),
                 Container(
                   height: 40,
                   margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -123,28 +118,28 @@ class _MyItems extends State<MyItems> {
                     itemBuilder: (BuildContext ctxt, int index) {
                       return ProductCard(_itemsList[index] as Product);
                     })),
-                    
-                    Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),
-                  
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 90, 0, 0),
+            ),
           ],
-        ),   nav_bar_widget(),
+        ),
+        nav_bar_widget(),
       ]),
     );
   }
-Future getitemsList() async {
+
+  Future getitemsList() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
     var data = await FirebaseFirestore.instance
-        .collection('Users')
-        .doc(uid)
-        .collection('Products')
-        //the .where is a condition 3shan ageb el ana 3ayzo mn database
-        //.where('Category', isEqualTo: 'Other')
+        .collection('All Products')
+        .where('Category', isEqualTo: 'Vehicles')
         .get();
+    //the .where is a condition 3shan ageb el ana 3ayzo mn database
+
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
       print(_itemsList.length);
       print(uid);
     });
   }
-  
 }
