@@ -13,7 +13,13 @@ import 'package:exchange_app/screens/signup.dart';
 import 'package:exchange_app/screens/viewProfile.dart';
 import 'package:exchange_app/screens/Offer_Screen.dart';
 import 'package:exchange_app/screens/My_Offers_screen.dart';
+import 'package:exchange_app/services/notification_services.dart';
+
+
+
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotification();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
