@@ -31,7 +31,7 @@ class offerCard extends StatelessWidget {
                 ),
                 subtitle: Text(
                   "${DateFormat('MM/dd/yyyy').format(_offer.created!).toString()}" +
-                      "${_offer.description}",
+                      "\n${_offer.description}",
                   maxLines: 4,
                   style: TextStyle(
                       fontSize: 12.0,

@@ -49,7 +49,7 @@ class _AllItems extends State<AllItems> {
         Column(
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
               child: ListTile(
                 leading: Icon(
                   Icons.search,
@@ -96,19 +96,10 @@ class _AllItems extends State<AllItems> {
                     ),
                   ],
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(250, 250, 250, 1),
-                    onPrimary: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sold');
-                  },
-                  child: Text("Sold Items"),
-                ),
+               
                 Container(
                   height: 40,
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                  margin: EdgeInsets.fromLTRB(80, 10, 0, 5),
                   child: IconButton(
                     icon: const Icon(Icons.sort),
                     color: Color.fromARGB(255, 12, 242, 180),

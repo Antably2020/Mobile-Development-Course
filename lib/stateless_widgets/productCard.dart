@@ -31,7 +31,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 subtitle: Text(
                   "${DateFormat('MM/dd/yyyy').format(_product.created!).toString()}" +
-                      "${_product.description}",
+                      "\n${_product.description}",
                   maxLines: 4,
                   style: TextStyle(
                       fontSize: 12.0,

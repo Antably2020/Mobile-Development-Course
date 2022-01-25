@@ -249,7 +249,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10))),
                             )),
-                        Container(
+                      /*  Container(
                           color: Colors.white,
                           padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
                           child: Center(
@@ -285,7 +285,7 @@ class _Product_DescriptionState extends State<Product_Description> {
                                   fontSize: 18.0),
                             ),
                           ),
-                        ),
+                        ),*/
                         Container(
                           margin: EdgeInsets.only(bottom: 100),
                         ),
