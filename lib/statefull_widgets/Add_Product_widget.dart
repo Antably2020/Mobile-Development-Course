@@ -161,5 +161,92 @@ class _State extends State<AddProduct> {
     _TWController.text = '';
     _CatController = '';
     _DescController.text = '';
+
+
+
+
+
+
+                        
+               showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return
+
+                 AlertDialog(
+                   
+ shape: RoundedRectangleBorder(
+                 
+                borderRadius: BorderRadius.all(Radius.circular(30.0))),
+            contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+
+
+
+
+                    content: Stack(
+                    
+                      children: <Widget>[
+                      
+                        Container(
+                       
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              
+                             Stack(
+  children: <Widget>[
+    // Stroked text as border.
+    Text(
+      'Item Added successfully!',
+      style: TextStyle(
+        fontSize: 28,
+        foreground: Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 6
+          ..color = const Color.fromARGB(255, 12, 242, 180),
+      ),
+    ),
+    // Solid text as fill.
+    Text(
+      'Item Added successfully!',
+      style: TextStyle(
+        fontSize: 28,
+        color: Colors.white,
+      ),
+    ),
+  ],
+),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                               child: ElevatedButton(
+                                 child: Text("Done",
+                                 
+                                 ),
+                                 onPressed: (){
+                                   
+Navigator.pushNamed(context, '/');
+                                 },
+                                 
+
+                                  style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(12, 242, 180, 1),
+                          
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                                  
+                                //),
+                              ),)
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );});
+            
+                 
+
   }
+
+
 }
