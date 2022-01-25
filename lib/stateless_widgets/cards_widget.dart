@@ -69,13 +69,12 @@ class _CardSquare extends State<CardSquare> {
                   children: <Widget>[
                     Container(
                       child: InkWell(
-                        onTap: () async{
-                       //   Navigator.of(context).push(MaterialPageRoute(
-                         //     builder: (context) => AllItems(
-                           //         title: 'Vehicles',
-                             //     )));
-                              await authService.signout();
-                                           Navigator.pushNamed(context, '/');
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                             builder: (context) => AllItems(
+                                   title: 'Vehicles',
+                                  )));
+                           
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
