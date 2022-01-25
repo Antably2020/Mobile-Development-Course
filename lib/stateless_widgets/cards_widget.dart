@@ -1,18 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:exchange_app/models/item.dart';
-import 'package:exchange_app/models/offers.dart';
 import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/statefull_widgets/My_Items_widget.dart';
-import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/statefull_widgets/all_products_widget.dart';
-import 'package:exchange_app/stateless_widgets/allProdCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:provider/provider.dart';
-
-import '../statefull_widgets/card_det_widget.dart';
 
 class CardSquare extends StatefulWidget {
   CardSquare({
@@ -258,8 +250,10 @@ class _CardSquare extends State<CardSquare> {
                     Container(
                       child: InkWell(
                         onTap: () {
-                          authService.signout();
-                          Navigator.pushNamed(context, '/login');
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => AllItems(
+                                    title: 'Other',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,

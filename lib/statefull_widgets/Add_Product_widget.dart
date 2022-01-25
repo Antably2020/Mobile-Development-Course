@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/services/auth.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -138,7 +138,9 @@ class _State extends State<AddProduct> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
                     )),
-                      Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                ),
               ],
             )));
   }
@@ -152,101 +154,79 @@ class _State extends State<AddProduct> {
 
     String uid = FirebaseAuth.instance.currentUser!.uid;
 
-    final docc = await FirebaseFirestore.instance
-        .collection('All Products').doc();
-        
-        docc.set(_prod.toJson(uid,docc.id));
- 
+    final docc =
+        await FirebaseFirestore.instance.collection('All Products').doc();
+
+    docc.set(_prod.toJson(uid, docc.id));
+
     _TitleController.text = '';
     _TWController.text = '';
     _CatController = '';
     _DescController.text = '';
 
-
-
-
-
-
-                        
-               showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return
-
-                 AlertDialog(
-                   
- shape: RoundedRectangleBorder(
-                 
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30.0))),
             contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-
-
-
-
-                    content: Stack(
-                    
-                      children: <Widget>[
-                      
-                        Container(
-                       
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              
-                             Stack(
-  children: <Widget>[
-    // Stroked text as border.
-    Text(
-      'Item Added successfully!',
-      style: TextStyle(
-        fontSize: 28,
-        foreground: Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 6
-          ..color = const Color.fromARGB(255, 12, 242, 180),
-      ),
-    ),
-    // Solid text as fill.
-    Text(
-      'Item Added successfully!',
-      style: TextStyle(
-        fontSize: 28,
-        color: Colors.white,
-      ),
-    ),
-  ],
-),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                               child: ElevatedButton(
-                                 child: Text("Done",
-                                 
-                                 ),
-                                 onPressed: (){
-                                   
-Navigator.pushNamed(context, '/');
-                                 },
-                                 
-
-                                  style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(12, 242, 180, 1),
-                          
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30))),
-                                  
-                                //),
-                              ),)
-                            ],
+            content: Stack(
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Stack(
+                        children: <Widget>[
+                          // Stroked text as border.
+                          Text(
+                            'Item Added successfully!',
+                            style: TextStyle(
+                              fontSize: 28,
+                              foreground: Paint()
+                                ..style = PaintingStyle.stroke
+                                ..strokeWidth = 6
+                                ..color =
+                                    const Color.fromARGB(255, 12, 242, 180),
+                            ),
                           ),
+                          // Solid text as fill.
+                          Text(
+                            'Item Added successfully!',
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          child: Text(
+                            "Done",
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/');
+                          },
+
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(12, 242, 180, 1),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 40, vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30))),
+
+                          //),
                         ),
-                      ],
-                    ),
-                  );});
-            
-                 
-
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
   }
-
-
 }

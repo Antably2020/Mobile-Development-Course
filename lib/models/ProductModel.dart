@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Product {
   String? title, description, category, tradeWith, product_id, user_id;
   int? sold;

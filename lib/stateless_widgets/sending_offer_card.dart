@@ -2,11 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/OffersModel.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-import 'package:exchange_app/stateless_widgets/productCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class sending_offer extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -116,11 +116,12 @@ class _State extends State<sending_offer> {
                             "Done",
                           ),
                           onPressed: () {
-                          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Product_Description(widget.recieved)),
-          );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Product_Description(widget.recieved)),
+                            );
                           },
 
                           style: ElevatedButton.styleFrom(

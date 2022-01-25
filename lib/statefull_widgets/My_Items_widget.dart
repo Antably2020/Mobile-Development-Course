@@ -1,14 +1,10 @@
-import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/productCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-import 'package:exchange_app/shapes/bg_shape3.dart';
-import 'package:exchange_app/models/item.dart';
 
 import 'nav_bar_widget.dart';
 

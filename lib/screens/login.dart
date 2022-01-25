@@ -1,5 +1,4 @@
 import 'package:exchange_app/statefull_widgets/loginpage.dart';
-import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class login extends StatelessWidget {
@@ -14,10 +13,8 @@ class login extends StatelessWidget {
             backgroundColor: Colors.transparent,
             body: loginpage(),
           ),
-          
         ],
       ),
-     
     );
   }
 }

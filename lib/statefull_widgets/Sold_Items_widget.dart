@@ -1,11 +1,10 @@
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/item.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/shapes/bg_shape3.dart';
-import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class SoldItems extends StatefulWidget {
   SoldItems({Key? key, required this.title}) : super(key: key);
 
@@ -19,7 +18,6 @@ class SoldItems extends StatefulWidget {
 class _SoldItemsState extends State<SoldItems> {
   @override
   Widget build(BuildContext context) {
-     final authService = Provider.of<Auth>(context);
     return Scaffold(
       body: Stack(children: <Widget>[
         bg_shape3(),

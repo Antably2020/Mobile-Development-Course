@@ -1,12 +1,9 @@
-
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/productCard.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-
 
 import 'nav_bar_widget.dart';
 
@@ -127,7 +124,6 @@ class _AllItems extends State<AllItems> {
   }
 
   Future getitemsList() async {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
     var data = await FirebaseFirestore.instance
         .collection('All Products')
         .where('Category', isEqualTo: widget.title)
@@ -136,7 +132,7 @@ class _AllItems extends State<AllItems> {
 
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
-     // print(_itemsList.length);
+      // print(_itemsList.length);
       //print(uid);
       print(widget.title);
     });

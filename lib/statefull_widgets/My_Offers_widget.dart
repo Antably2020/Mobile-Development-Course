@@ -1,14 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/OffersModel.dart';
-import 'package:exchange_app/models/item.dart';
+
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/offer_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/statefull_widgets/offer.dart';
-import 'package:exchange_app/shapes/bg_shape3.dart';
-import 'package:exchange_app/models/item.dart';
 
 class MyOffers extends StatefulWidget {
   MyOffers({Key? key, required this.title}) : super(key: key);

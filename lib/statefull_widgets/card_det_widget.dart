@@ -1,6 +1,6 @@
 import 'package:exchange_app/models/offers.dart';
 import 'package:flutter/material.dart';
-import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
+
 class card_details extends StatefulWidget {
   final Offers myData;
 
@@ -131,7 +131,8 @@ class _card_details extends State<card_details> {
                           width: 30.0,
                         ),
                         image: new DecorationImage(
-                          image: ExactAssetImage("assets/" + widget.myData.image),
+                          image:
+                              ExactAssetImage("assets/" + widget.myData.image),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
@@ -144,9 +145,7 @@ class _card_details extends State<card_details> {
             ],
           ),
         ],
-       
       ),
-   
     );
   }
 }

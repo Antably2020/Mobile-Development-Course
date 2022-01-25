@@ -1,17 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/OffersModel.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/services/auth.dart';
-import 'package:exchange_app/stateless_widgets/productCard.dart';
 import 'package:exchange_app/stateless_widgets/sending_offer_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
-import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class Product_Description extends StatefulWidget {
   final Product myData;
+
   Offer newOffer = Offer();
   Product_Description(this.myData);
 
@@ -238,9 +237,8 @@ class _Product_DescriptionState extends State<Product_Description> {
                                                     int index) {
                                                   return sending_offer(
                                                       _itemsList[index]
-                                                          as Product,  widget.myData
-                                                          );
-                                                          
+                                                          as Product,
+                                                      widget.myData);
                                                 })),
                                       );
                                     });
@@ -306,14 +304,15 @@ class _Product_DescriptionState extends State<Product_Description> {
   }
 
   void _addOffer() async {
-    String uid = FirebaseAuth.instance.currentUser!.uid;
-    widget.newOffer.Creator = widget.myData.user_id;
-    widget.newOffer.ProductIDOriginal = widget.myData.product_id;
-    widget.newOffer.uidMadeOffer = uid;
-
-    final docc = await FirebaseFirestore.instance.collection('Offers').doc();
-
-    docc.set(widget.newOffer.toJson());
+    var data = await FirebaseFirestore.instance
+        .collection('Users')
+        .where('User_id', isEqualTo: widget.myData.user_id)
+        .get();
+    setState(() {
+      _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
+      print(_itemsList.length);
+      print(_itemsList[0]);
+    });
   }
 
   Future getitemsList() async {
@@ -348,6 +347,7 @@ class StarRating extends StatelessWidget {
     if (index >= rating) {
       icon = new Icon(
         Icons.star_border,
+        // ignore: deprecated_member_use
         color: Theme.of(context).buttonColor,
       );
     } else if (index > rating - 1 && index < rating) {

@@ -1,4 +1,3 @@
-import 'package:exchange_app/screens/login.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/shapes/bg_shape.dart';
@@ -14,7 +13,6 @@ class _State extends State<loginpage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -141,9 +139,9 @@ class _State extends State<loginpage> {
                     ],
                     mainAxisAlignment: MainAxisAlignment.center,
                   )),
-                  
-                      Container(margin: EdgeInsets.fromLTRB(0, 100, 0, 0),),
-                  
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                  ),
                 ],
               ),
             )));
