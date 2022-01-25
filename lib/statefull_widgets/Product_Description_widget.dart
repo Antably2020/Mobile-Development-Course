@@ -8,7 +8,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
-import 'package:exchange_app/models/item.dart';
 import 'package:provider/provider.dart';
 
 class Product_Description extends StatefulWidget {
@@ -32,7 +31,7 @@ class _Product_DescriptionState extends State<Product_Description> {
 
   @override
   Widget build(BuildContext context) {
-    final authService = Provider.of<Auth>(context);
+    //final authService = Provider.of<Auth>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

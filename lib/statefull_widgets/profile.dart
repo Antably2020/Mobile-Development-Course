@@ -25,10 +25,12 @@ class _MyHomePageState extends State<profile> {
   Widget build(BuildContext context) {
     final authService = Provider.of<Auth>(context);
     //final firestoreService = Provider.of<firestore_database>(context);
-    final uid = FirebaseAuth.instance.currentUser!.uid;
-    
+    final user = FirebaseAuth.instance.currentUser;
+    final name_cont = TextEditingController();
+    final email_cont = TextEditingController();
+    final phone_cont = TextEditingController();
     return  FutureBuilder<profile_model?>(
-      future: firestore_database(uid).readUser(),
+      future: firestore_database(user!.uid).readUser(),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
         {
@@ -36,6 +38,9 @@ class _MyHomePageState extends State<profile> {
         }
         else{
           final d = snapshot.data!;
+          name_cont.text = d.Name;
+          email_cont.text = d.email;
+          phone_cont.text = d.Phone;
         return  ListView(
           children:[ Column(
                           children: [
@@ -73,10 +78,12 @@ class _MyHomePageState extends State<profile> {
                               ),
                             ),
                             Row(),
-                            
+                            Form(child: Column(
+                          children: [
                             Container(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: TextField(
+                              child: TextFormField(
+                                controller: name_cont,
                                 decoration: new InputDecoration(
                                   border: InputBorder.none,
                                   prefixIcon: Icon(
@@ -85,26 +92,15 @@ class _MyHomePageState extends State<profile> {
                                   ),
                                   labelText: d.Name,
                                 ),
+                                
                               ),
                             ),
                             Container(child: Divider(color: Colors.black)),
+                           
                             Container(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: TextField(
-                                decoration: new InputDecoration(
-                                  border: InputBorder.none,
-                                  prefixIcon: Icon(
-                                    Icons.date_range_outlined ,
-                                    color: const Color.fromARGB(255, 12, 242, 180),
-                                  ),
-                                  labelText: "28/2/2000",
-                                ),
-                              ),
-                            ),
-                            Container(child: Divider(color: Colors.black)),
-                            Container(
-                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: TextField(
+                              child: TextFormField(
+                                controller: phone_cont,
                                 decoration: new InputDecoration(
                                   border: InputBorder.none,
                                   prefixIcon: Icon(
@@ -118,47 +114,66 @@ class _MyHomePageState extends State<profile> {
                             Container(child: Divider(color: Colors.black)),
                             Container(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: TextField(
+                              child: TextFormField(
+                                controller: email_cont ,
                                 decoration: new InputDecoration(
                                   border: InputBorder.none,
                                   prefixIcon: Icon(
                                     Icons.mail_outline,
                                     color: const Color.fromARGB(255, 12, 242, 180),
                                   ),
-                                  labelText: "mahmoudzoair@gmail.com",
+                                  labelText: d.email,
                                 ),
                               ),
                             ),
                             Container(child: Divider(color: Colors.black)),
-                            Container(
-                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: TextField(
-                                decoration: new InputDecoration(
-                                  border: InputBorder.none,
-                                  prefixIcon: Icon(
-                                    Icons.remove_red_eye_outlined ,
-                                    color: const Color.fromARGB(255, 12, 242, 180),
-                                  ),
-                                  labelText: "Password",
-                                ),
-                              ),
+                           
+
+                            Row(
+                              children: [
+                                Container(
+                                      height: 50,
+                                      padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                                      child: ElevatedButton(
+                                        child: Text('Logout'),
+                                        onPressed: () async{
+                                          await authService.signout();
+                                           Navigator.pushNamed(context, '/');
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Color.fromRGBO(12, 242, 180, 1),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(30))),
+                                      )
+                                      ),
+                                      Container(
+                                      height: 50,
+                                      padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                                      child: ElevatedButton(
+                                        child: Text('Update'),
+                                        onPressed: () async{
+                                          try{
+                                             await user.updateEmail(email_cont.text);
+                                          firestore_database(user.uid).createUserData(name_cont.text, phone_cont.text,email_cont.text);
+                                           Navigator.pushNamed(context, '/home');
+                                           }
+                                              catch(e)
+                                              {
+                                                
+                                                print(e);
+                                                
+                                              }
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Color.fromRGBO(12, 242, 180, 1),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(30))),
+                                      )
+                                      ),
+                              ],
                             ),
-                            Container(child: Divider(color: Colors.black)),
-                
-                            Container(
-                                  height: 50,
-                                  padding: EdgeInsets.fromLTRB(50, 10, 50, 0),
-                                  child: ElevatedButton(
-                                    child: Text('Logout'),
-                                    onPressed: () async{
-                                      await authService.signout();
-                                       Navigator.pushNamed(context, '/');
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                        primary: Color.fromRGBO(12, 242, 180, 1),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(30))),
-                                  )),
+                          ])
+                          )
                           ],
                         ),
                         Container(margin: EdgeInsets.fromLTRB(0, 0, 0, 100),)

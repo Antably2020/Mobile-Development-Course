@@ -35,7 +35,7 @@ Future<User?> signup(String email, String password,String name, String phone) as
   try{
 final credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 au.User? u = credential.user;
-await firestore_database(u?.uid).createUserData(name, phone);
+await firestore_database(u?.uid).createUserData(name, phone,u!.email);
 return _userFromFirebase(credential.user);
  }
   catch(e)

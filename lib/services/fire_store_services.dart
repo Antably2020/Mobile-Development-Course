@@ -29,13 +29,14 @@ final String? uid;
   firestore_database( this.uid);
 
 
-Future createUserData(String name,String phone) async {
+Future createUserData(String name,String phone,String? email) async {
   final user_profile =  FirebaseFirestore.instance.collection('Users').doc(uid);
   
   final user = profile_model(
     name,
     phone,
     user_profile.id,
+    email!,
   );
 
   final json = user.toJson();
