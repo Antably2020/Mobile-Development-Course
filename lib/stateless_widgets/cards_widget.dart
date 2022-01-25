@@ -6,6 +6,7 @@ import 'package:exchange_app/statefull_widgets/My_Items_widget.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
 import 'package:exchange_app/stateless_widgets/allProdCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:provider/provider.dart';
@@ -31,13 +32,12 @@ class _CardSquare extends State<CardSquare> {
 
   @override
   Widget build(BuildContext context) {
-     final authService = Provider.of<Auth>(context);
+    final authService = Provider.of<Auth>(context);
     return Scaffold(
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(10, 80, 0, 0),
-            
+            padding: EdgeInsets.fromLTRB(10, 30, 0, 0),
           ),
           Container(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -59,7 +59,7 @@ class _CardSquare extends State<CardSquare> {
                   ],
                 ),
                 width: double.infinity,
-                height: 150,
+                height: 200,
               ),
             ),
           ),
@@ -78,8 +78,9 @@ class _CardSquare extends State<CardSquare> {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  MyItems(title: 'Vehicles')));
+                              builder: (context) => MyItems(
+                                    title: 'Vehicles',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -89,55 +90,89 @@ class _CardSquare extends State<CardSquare> {
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Vehicle'),
+                            Text(
+                              'Vehicle',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      padding: const EdgeInsets.all(12),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     Container(
                       child: InkWell(
                         onTap: () {
-                             authService.signout();
-                                 Navigator.pushNamed(context, '/login');
+                        Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyItems(title: 'Electronics',)));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.motorcycle,
+                              Icons.phone_iphone,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Electronics'),
+                            Text('Electronics',  style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),),
                           ],
                         ),
                       ),
                       padding: const EdgeInsets.all(12),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     Container(
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) =>
-                                  MyItems(title: 'Electronics')));
+                                  MyItems(title: 'Furniture ',)));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.motorcycle,
+                              Icons.chair ,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Furnuture'),
+                            Text('Furniture ',  style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),),
                           ],
                         ),
                       ),
                       padding: const EdgeInsets.all(12),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     Container(
                       child: InkWell(
@@ -149,16 +184,26 @@ class _CardSquare extends State<CardSquare> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.motorcycle,
+                              Icons.book,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Books'),
+                            Text('Books',  style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),),
                           ],
                         ),
                       ),
                       padding: const EdgeInsets.all(12),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     Container(
                       child: InkWell(
@@ -170,16 +215,26 @@ class _CardSquare extends State<CardSquare> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.motorcycle,
+                              Icons.people ,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Fashion'),
+                            Text('Fashion',  style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),),
                           ],
                         ),
                       ),
                       padding: const EdgeInsets.all(8),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     Container(
                       child: InkWell(
@@ -191,16 +246,26 @@ class _CardSquare extends State<CardSquare> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.motorcycle,
+                              Icons.people ,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Other'),
+                            Text('Other',  style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                decorationStyle: TextDecorationStyle.solid,
+                                letterSpacing: 2.0,
+                              ),),
                           ],
                         ),
                       ),
                       padding: const EdgeInsets.all(8),
-                      color: const Color.fromARGB(255, 12, 242, 180),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 12, 242, 180),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ],
                 ),
@@ -227,7 +292,7 @@ class _CardSquare extends State<CardSquare> {
 
   Future getitemsList() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
-    
+
     var data =
         await FirebaseFirestore.instance.collection('All Products').get();
     setState(() {

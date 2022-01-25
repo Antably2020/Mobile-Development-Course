@@ -95,7 +95,7 @@ class _State extends State<AddProduct> {
                     items: <String>[
                       'Vehicles',
                       'Electronics',
-                      'Furnuture',
+                      'Furniture',
                       'Books',
                       'Fashion',
                       'Other'
