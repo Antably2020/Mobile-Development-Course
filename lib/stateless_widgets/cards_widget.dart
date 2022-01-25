@@ -4,6 +4,7 @@ import 'package:exchange_app/models/offers.dart';
 import 'package:exchange_app/services/auth.dart';
 import 'package:exchange_app/statefull_widgets/My_Items_widget.dart';
 import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
+import 'package:exchange_app/statefull_widgets/all_products_widget.dart';
 import 'package:exchange_app/stateless_widgets/allProdCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -78,7 +79,7 @@ class _CardSquare extends State<CardSquare> {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyItems(
+                              builder: (context) => AllItems(
                                     title: 'Vehicles',
                                   )));
                         },
@@ -113,9 +114,10 @@ class _CardSquare extends State<CardSquare> {
                     Container(
                       child: InkWell(
                         onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  MyItems(title: 'Electronics',)));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => AllItems(
+                                    title: 'Electronics',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -125,14 +127,17 @@ class _CardSquare extends State<CardSquare> {
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Electronics',  style: TextStyle(
+                            Text(
+                              'Electronics',
+                              style: TextStyle(
                                 fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,
                                 decorationStyle: TextDecorationStyle.solid,
                                 letterSpacing: 2.0,
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -146,25 +151,29 @@ class _CardSquare extends State<CardSquare> {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  MyItems(title: 'Furniture ',)));
+                              builder: (context) => AllItems(
+                                    title: 'Furniture',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.chair ,
+                              Icons.chair,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Furniture ',  style: TextStyle(
+                            Text(
+                              'Furniture ',
+                              style: TextStyle(
                                 fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,
                                 decorationStyle: TextDecorationStyle.solid,
                                 letterSpacing: 2.0,
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -178,7 +187,9 @@ class _CardSquare extends State<CardSquare> {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyItems(title: 'Books')));
+                              builder: (context) => AllItems(
+                                    title: 'Books',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -188,14 +199,17 @@ class _CardSquare extends State<CardSquare> {
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Books',  style: TextStyle(
+                            Text(
+                              'Books',
+                              style: TextStyle(
                                 fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,
                                 decorationStyle: TextDecorationStyle.solid,
                                 letterSpacing: 2.0,
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -209,24 +223,29 @@ class _CardSquare extends State<CardSquare> {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyItems(title: 'Fashion')));
+                              builder: (context) => AllItems(
+                                    title: 'Fashion',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.people ,
+                              Icons.people,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Fashion',  style: TextStyle(
+                            Text(
+                              'Fashion',
+                              style: TextStyle(
                                 fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,
                                 decorationStyle: TextDecorationStyle.solid,
                                 letterSpacing: 2.0,
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -238,26 +257,31 @@ class _CardSquare extends State<CardSquare> {
                     ),
                     Container(
                       child: InkWell(
-                        onTap: () {
+                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyItems(title: 'Other')));
+                              builder: (context) => AllItems(
+                                    title: 'Other',
+                                  )));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.people ,
+                              Icons.people,
                               color: Colors.white,
                               size: 50.0,
                             ),
-                            Text('Other',  style: TextStyle(
+                            Text(
+                              'Other',
+                              style: TextStyle(
                                 fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,
                                 decorationStyle: TextDecorationStyle.solid,
                                 letterSpacing: 2.0,
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -275,16 +299,6 @@ class _CardSquare extends State<CardSquare> {
           Container(
             margin: EdgeInsets.fromLTRB(0, 90, 0, 0),
           ),
-
-          /*
-          Expanded(
-              child: ListView.builder(
-                  padding:
-                      EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
-                  itemCount: _itemsList.length,
-                  itemBuilder: (BuildContext ctxt, int index) {
-                    return allProdCard(_itemsList[index] as Product);
-                  })), Container(margin: EdgeInsets.fromLTRB(0, 90, 0, 0),),*/
         ],
       ),
     );

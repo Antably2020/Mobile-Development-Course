@@ -34,13 +34,13 @@ class _nav_bar_widget extends State<nav_bar_widget> {
                   painter: RPSCustomPainter(),
                 ),
                 Center(
-                  heightFactor: 0.6,
+                  heightFactor: 0.8,
                   child: FloatingActionButton(
                       backgroundColor: const Color.fromARGB(255, 12, 242, 180),
-                      child: Icon(Icons.shopping_basket),
+                      child: Icon(Icons.add),
                       elevation: 0.1,
                       onPressed: () {
-                        Navigator.pushNamed(context, '/items');
+                        Navigator.pushNamed(context, '/addproducts');
                       }),
                 ),
                 Container(
@@ -78,14 +78,14 @@ class _nav_bar_widget extends State<nav_bar_widget> {
                       ),
                       IconButton(
                           icon: Icon(
-                            Icons.add_box_rounded,
+                            Icons.shopping_basket,
                             color: currentIndex == 2
                                 ? const Color.fromARGB(255, 12, 242, 180)
                                 : Colors.grey.shade400,
                           ),
                           onPressed: () {
                             setBottomBarIndex(2);
-                             Navigator.pushNamed(context, '/addproducts');
+                             Navigator.pushNamed(context, '/items');
                           }),
                       IconButton(
                           icon: Icon(

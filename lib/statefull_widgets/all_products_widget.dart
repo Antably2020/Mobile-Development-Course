@@ -1,4 +1,4 @@
-import 'package:exchange_app/models/item.dart';
+
 import 'package:exchange_app/shapes/bg_shape3.dart';
 import 'package:exchange_app/stateless_widgets/productCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,22 +6,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/models/ProductModel.dart';
-import 'package:exchange_app/statefull_widgets/Product_Description_widget.dart';
-import 'package:exchange_app/shapes/bg_shape3.dart';
-import 'package:exchange_app/models/item.dart';
+
 
 import 'nav_bar_widget.dart';
 
-class MyItems extends StatefulWidget {
-  MyItems({Key? key, required this.title}) : super(key: key);
+class AllItems extends StatefulWidget {
+  AllItems({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyItems createState() => _MyItems();
+  _AllItems createState() => _AllItems();
 }
 
-class _MyItems extends State<MyItems> {
+class _AllItems extends State<AllItems> {
   List<Object> _itemsList = [];
 
   @override
@@ -132,14 +130,15 @@ class _MyItems extends State<MyItems> {
     final uid = FirebaseAuth.instance.currentUser!.uid;
     var data = await FirebaseFirestore.instance
         .collection('All Products')
-        .where('User_id', isEqualTo: uid)
+        .where('Category', isEqualTo: widget.title)
         .get();
     //the .where is a condition 3shan ageb el ana 3ayzo mn database
 
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
-      print(_itemsList.length);
-      print(uid);
+     // print(_itemsList.length);
+      //print(uid);
+      print(widget.title);
     });
   }
 }
