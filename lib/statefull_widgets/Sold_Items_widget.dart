@@ -121,7 +121,7 @@ class _SoldItemsState extends State<SoldItems> {
     var data = await FirebaseFirestore.instance
         .collection('All Products')
         .where('User_id', isEqualTo: uid)
-        .where('Sold', isEqualTo: true)
+        .where('Sold', isEqualTo: 1)
         .get();
     //the .where is a condition 3shan ageb el ana 3ayzo mn database
 
