@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exchange_app/models/OffersModel.dart';
 import 'package:exchange_app/models/ProductModel.dart';
 import 'package:exchange_app/services/auth.dart';
+import 'package:exchange_app/stateless_widgets/productCard.dart';
+import 'package:exchange_app/stateless_widgets/sending_offer_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:exchange_app/statefull_widgets/nav_bar_widget.dart';
@@ -20,6 +22,14 @@ class Product_Description extends StatefulWidget {
 
 class _Product_DescriptionState extends State<Product_Description> {
   double rating = 3.5;
+  List<Object> _itemsList = [];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getitemsList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<Auth>(context);
@@ -206,7 +216,37 @@ class _Product_DescriptionState extends State<Product_Description> {
                               /*  authService.signout();
                                  Navigator.pushNamed(context, '/login');*/
 
-                              onPressed: _addOffer,
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text('Choose product to trade'),
+                                        content: Container(
+                                            height:
+                                                300.0, // Change as per your requirement
+                                            width:
+                                                300.0, // Change as per your requirement
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                padding: EdgeInsets.only(
+                                                    left: 0,
+                                                    top: 10,
+                                                    right: 0,
+                                                    bottom: 5),
+                                                itemCount: _itemsList.length,
+                                                itemBuilder: (BuildContext ctxt,
+                                                    int index) {
+                                                  return sending_offer(
+                                                      _itemsList[index]
+                                                          as Product,  widget.myData
+                                                          );
+                                                          
+                                                })),
+                                      );
+                                    });
+                              },
+                              // _addOffer,
                               style: ElevatedButton.styleFrom(
                                   primary: Color.fromARGB(255, 12, 242, 180),
                                   shape: RoundedRectangleBorder(
@@ -269,12 +309,27 @@ class _Product_DescriptionState extends State<Product_Description> {
   void _addOffer() async {
     String uid = FirebaseAuth.instance.currentUser!.uid;
     widget.newOffer.Creator = widget.myData.user_id;
-    widget.newOffer.ProductID = widget.myData.product_id;
+    widget.newOffer.ProductIDOriginal = widget.myData.product_id;
     widget.newOffer.uidMadeOffer = uid;
 
     final docc = await FirebaseFirestore.instance.collection('Offers').doc();
 
     docc.set(widget.newOffer.toJson());
+  }
+
+  Future getitemsList() async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    var data = await FirebaseFirestore.instance
+        .collection('All Products')
+        .where('User_id', isEqualTo: uid)
+        .get();
+    //the .where is a condition 3shan ageb el ana 3ayzo mn database
+
+    setState(() {
+      _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
+      print(_itemsList.length);
+      print(uid);
+    });
   }
 }
 

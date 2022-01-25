@@ -126,9 +126,8 @@ class _MyOffers extends State<MyOffers> {
   Future getitemsList() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
     var data = await FirebaseFirestore.instance
-        .collection('Users')
-        .doc(uid)
-        .collection('Products')
+        .collection('Offers')
+        .where('Product Creator', isEqualTo: uid)
         .get();
     setState(() {
       _itemsList = List.from(data.docs.map((doc) => Product.fromSnapshot(doc)));
