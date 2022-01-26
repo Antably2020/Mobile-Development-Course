@@ -46,9 +46,7 @@ return _userFromFirebase(credential.user);
  }
   catch(e)
   {
-    
-    print(e);
-    
+       print(e);
   }
 }
 
